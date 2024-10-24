@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+
 
 group :jekyll_plugins do
   gem 'jekyll'
@@ -9,3 +10,4 @@ group :jekyll_plugins do
 end
 
 gem 'github-pages'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
