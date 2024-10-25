@@ -9,56 +9,71 @@ redirect_from:
 
 {% include base_path %}
 
+---
+layout: archive
+title: "CV"
+permalink: /cv/
+author_profile: true
+redirect_from:
+  - /resume
+---
+
+{% include base_path %}
+
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D. in Materials Science, Northwestern Polytechnical University, Joint Research at Ulm University, Germany
+* B.S. in Materials Science, Northwestern Polytechnical University
 
-Work experience
+Work Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2021 - Present: Visiting Professor
+  * Materials Science Institute of Madrid, CSIC, Spain
+  * Research focus: Low-dimensional semiconductors and devices
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2019 - 2023: Associate Professor
+  * Xidian University, China
+  * Teaching and research in materials science and engineering
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* 2017 - 2019: Postdoctoral Researcher
+  * Case Western Reserve University, USA
+  * Focus on electrical engineering and materials science research
+
+* 2015 - 2017: MEMS Engineer
+  * Xi'an Flight Automatic Control Research Institute
+  * Worked on microelectromechanical systems (MEMS) for sensor applications
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Materials Characterization
+  * Optical Spectroscipy
+
+* Machine Learning for Materials Science
+* MEMS/NEMS Device Design
+* Programming Languages
+  * Python
+  * MATLAB
 
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
+
+Service and Leadership
 ======
-* Currently signed in to 43 different slack teams
+* Organized workshops on low-dimensional materials
+* Supervised graduate students in materials science
+* Reviewer for journals: Nano Letters, Advanced Materials
