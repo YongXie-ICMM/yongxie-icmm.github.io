@@ -42,7 +42,7 @@ Skills
   * Nanofabrications
   * Optical Spectroscopy
   * Electrical measurements
-* Machine Learning for Materials Science
+* Machine learning for materials science
   * Deep learning with PyTorch
   * Computer Vision
 * MEMS/NEMS device design, fabrication and characterization
