@@ -9,17 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
----
-layout: archive
-title: "CV"
-permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
----
-
-{% include base_path %}
-
 Education
 ======
 * Ph.D. in Materials Science, Northwestern Polytechnical University, Joint Research at Ulm University, Germany
