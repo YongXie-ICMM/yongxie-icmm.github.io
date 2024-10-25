@@ -39,12 +39,12 @@ Work Experience
 Skills
 ======
 * Materials prepration, device fabrication and Characterization
-  *Nanofabrications
-  *Optical Spectroscipy
-  *Electrical measurements
+  * Nanofabrications
+  * Optical Spectroscipy
+  * Electrical measurements
 * Machine Learning for Materials Science
-  *Deep learning with PyTorch
-  *Computer Vision
+  * Deep learning with PyTorch
+  * Computer Vision
 * MEMS/NEMS device design and fabrication
 * Programming Languages
   * Python
