@@ -1,14 +1,13 @@
 ---
-title: "Paper Title Number 2"
+title: "Van der Waals Materials for Paper Electronics"
 collection: publications
 category: manuscripts
-permalink: /publication/2010-10-01-paper-title-number-2
-excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
-date: 2010-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides2.pdf'
-paperurl: 'http://academicpages.github.io/files/paper2.pdf'
-citation: 'Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).'
+permalink: /publication/2023-11-17-van-der-waals-paper-electronics
+excerpt: 'This review covers the state-of-the-art research progress in the development of van der Waals materials and their applications in paper-based electronics and optoelectronics.'
+date: 2023-11-17
+venue: 'Trends in Chemistry'
+paperurl: 'https://www.cell.com/trends/chemistry/fulltext/S2589-5974(23)00238-1'
+citation: 'Wenliang Zhang, Kexin He, Andres Castellanos-Gomez, Yong Xie. (2023). &quot;Van der Waals Materials for Paper Electronics.&quot; <i>Trends in Chemistry</i>, Elsevier.'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+Two-dimensional van der Waals (vdW) materials have attracted extensive interest because of their superior electrical, optical, thermodynamic, and mechanical properties, which hold great potential in the development of flexible paper-based devices. The family of vdW materials is significantly diverse, and their electronic features range from metallic to semiconducting and superconducting. This review covers the state-of-the-art research progress in the development of various vdW materials, from fabrication to applications in paper-based electronics and optoelectronics. In particular, the promising applications of vdW materials integrated with paper as flexible mechanical sensors, environmental sensors, and photodetectors are highlighted. The remaining challenges and prospects relat
