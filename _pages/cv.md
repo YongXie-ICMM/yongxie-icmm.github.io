@@ -20,7 +20,7 @@ Work Experience
   * Materials Science Institute of Madrid, CSIC, Spain
   * Research focus: Low-dimensional semiconductors and devices
 
-* 2019 - Present: Associate Professor
+* 2020 - Present: Associate Professor
   * Xidian University, China
   * Teaching and research in materials science and engineering
 
@@ -28,7 +28,7 @@ Work Experience
   * Case Western Reserve University, USA
   * Focus on electrical engineering and materials science research
   
-* 2014 - 2017: Assistant Professor
+* 2014 - 2020: Assistant Professor
   * Xidian University, China
   * Teaching and research in materials science and engineering
 
