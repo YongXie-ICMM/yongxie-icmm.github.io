@@ -40,7 +40,7 @@ Skills
 ======
 * Materials prepration, device fabrication and Characterization
   * Nanofabrications
-  * Optical Spectroscipy
+  * Optical Spectroscopy
   * Electrical measurements
 * Machine Learning for Materials Science
   * Deep learning with PyTorch
