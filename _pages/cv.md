@@ -20,25 +20,32 @@ Work Experience
   * Materials Science Institute of Madrid, CSIC, Spain
   * Research focus: Low-dimensional semiconductors and devices
 
-* 2019 - 2023: Associate Professor
+* 2019 - Present: Associate Professor
   * Xidian University, China
   * Teaching and research in materials science and engineering
 
 * 2017 - 2019: Postdoctoral Researcher
   * Case Western Reserve University, USA
   * Focus on electrical engineering and materials science research
+  
+* 2014 - 2017: Assistant Professor
+  * Xidian University, China
+  * Teaching and research in materials science and engineering
 
-* 2015 - 2017: MEMS Engineer
+* 2013 - 2014: MEMS Engineer
   * Xi'an Flight Automatic Control Research Institute
   * Worked on microelectromechanical systems (MEMS) for sensor applications
 
 Skills
 ======
-* Materials Characterization
-  * Optical Spectroscipy
-
+* Materials prepration, device fabrication and Characterization
+  *Nanofabrications
+  *Optical Spectroscipy
+  *Electrical measurements
 * Machine Learning for Materials Science
-* MEMS/NEMS Device Design
+  *Deep learning with PyTorch
+  *Computer Vision
+* MEMS/NEMS device design and fabrication
 * Programming Languages
   * Python
   * MATLAB
@@ -65,4 +72,4 @@ Service and Leadership
 ======
 * Organized workshops on low-dimensional materials
 * Supervised graduate students in materials science
-* Reviewer for journals: Nano Letters, Advanced Materials
+* Reviewer for journals: Nano Letters, Small, APL, JAP
