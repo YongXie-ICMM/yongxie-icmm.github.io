@@ -6,7 +6,7 @@ permalink: /publication/2022-08-28-straining-wse2-thermal-annealing
 excerpt: 'This paper presents a facile three-point approach combined with a dry transfer method to apply uniaxial strain to two-dimensional materials, effectively suppressing slippage of WSe2 on substrate through thermal annealing.'
 date: 2022-08-28
 venue: 'Journal of Applied Physics, Volume 132, Issue 8'
-paperurl: 'http://yongxie-icmm.github.io/files/straining-wse2-thermal-annealing.pdf'
+paperurl: 'https://aip.scitation.org/doi/full/10.1063/5.0103587'
 citation: 'Wenshuai Hu, Yabin Wang, Kexin He, Xiaolong He, Yan Bai, Chenyang Liu, Nan Zhou, Haolin Wang, Peixian Li, Xiaohua Ma, Yong Xie. (2022). &quot;Straining of Atomically Thin WSe2 Crystals: Suppressing Slippage by Thermal Annealing.&quot; <i>Journal of Applied Physics</i>, 132(8).' 
 link: 'https://aip.scitation.org/doi/full/10.1063/5.0103587'
 ---
