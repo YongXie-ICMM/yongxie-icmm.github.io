@@ -7,6 +7,7 @@ excerpt: 'This review covers the state-of-the-art research progress in the devel
 date: 2023-11-17
 venue: 'Trends in Chemistry'
 paperurl: 'https://www.cell.com/trends/chemistry/fulltext/S2589-5974(23)00238-1'
+link: 'https://www.cell.com/trends/chemistry/fulltext/S2589-5974(23)00238-1'
 citation: 'Wenliang Zhang, Kexin He, Andres Castellanos-Gomez, Yong Xie. (2023). &quot;Van der Waals Materials for Paper Electronics.&quot; <i>Trends in Chemistry</i>, Elsevier.'
 ---
 
