@@ -18,19 +18,19 @@ Work Experience
 ======
 * 2021 - Present: Visiting Professor
   * Materials Science Institute of Madrid, CSIC, Spain
-  * Research focus: Low-dimensional semiconductors and devices
+  * Research focus: 2D Semiconducting Materials & Sensors, Internet of Things (IOT), Machine Learning, AI for Materials
 
 * 2020 - Present: Associate Professor
   * Xidian University, China
-  * Teaching and research in materials science and engineering
+  * Teaching and research: 2D Semiconducting Materials & Sensors, Internet of Things (IOT), Machine Learning, AI for Materials
 
 * 2017 - 2019: Postdoctoral Researcher
   * Case Western Reserve University, USA
-  * Focus on electrical engineering and materials science research
+  * Research focus: Nanoelectromechanical systems (NEMS), nano-and micro-fabrications and sensors, Data analysis using Python
   
 * 2014 - 2020: Assistant Professor
   * Xidian University, China
-  * Teaching and research in materials science and engineering
+  * Teaching and research: Wide Bandgap Semiconductors (III-N & Oxide) Materials and Devices, 2D Materials & Sensors, Machine Learning
 
 * 2013 - 2014: MEMS Engineer
   * Xi'an Flight Automatic Control Research Institute
