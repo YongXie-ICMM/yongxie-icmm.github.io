@@ -1,5 +1,5 @@
 ---
-title: "Laser Trimming for Lithography-Free Fabrications of MoS2 Devices"
+title: "Laser Trimming for Lithography-Free Fabrications of MoS<sub>2</sub> Devices"
 collection: publications
 category: manuscripts
 permalink: /publication/2023-04-laser-trimming-mos2
