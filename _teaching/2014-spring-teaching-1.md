@@ -8,7 +8,7 @@ date: 2020-01-01
 location: "Xi'an, China"
 ---
 
-This is a general studies course exploring the role of AI in revolutionizing materials science, offered in the Spring 2019, Fall 2020, and Spring 2023 semesters.
+This is a general studies course exploring the role of AI in revolutionizing materials science, offered in the Spring 2020, Fall 2020, and Spring 2024 semesters.
 
 ---
 
