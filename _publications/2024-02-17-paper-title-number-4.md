@@ -1,5 +1,5 @@
 ---
-title: "Straining of Atomically Thin WSe2 Crystals: Suppressing Slippage by Thermal Annealing"
+title: "Straining of Atomically Thin WSe<sub>2</sub> Crystals: Suppressing Slippage by Thermal Annealing"
 collection: publications
 category: manuscripts
 permalink: /publication/2022-08-28-straining-wse2-thermal-annealing
