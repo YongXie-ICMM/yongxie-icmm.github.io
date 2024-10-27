@@ -6,7 +6,7 @@ permalink: /publication/2024-02-26-identification-twisted-bilayer
 excerpt: 'This paper describes the use of optical microscopy and deep learning to identify and characterize twisted bilayer materials.'
 date: 2024-02-26
 venue: 'Nano Letters, Volume 24, Issue 9, Pages 2789-2797'
-paperurl: 'https://pubs.acs.org/doi/full/10.1021/acs.nanolett.3c04815'
+paperurl: '/files/paper1.pdf'
 citation: 'Yong Xie, Haitao Yang, Ruiqi Hu, et al. (2024). &quot;Identification and Structural Characterization of Twisted Atomically Thin Bilayer Materials by Deep Learning.&quot; <i>Nano Letters</i>, 24(9), 2789-2797.'
 link: 'https://pubs.acs.org/doi/full/10.1021/acs.nanolett.3c04815'
 ---
