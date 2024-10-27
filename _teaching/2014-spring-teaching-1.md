@@ -3,8 +3,8 @@ title: "Artificial Intelligence Transforming Materials Science"
 collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/2019-spring-ai-materials
-venue: "University, General Studies"
-date: 2019-01-01
+venue: "Xidian University"
+date: 2020-01-01
 location: "Xi'an, China"
 ---
 
