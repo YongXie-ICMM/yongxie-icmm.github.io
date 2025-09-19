@@ -3,12 +3,12 @@ title: "Toward Full Autonomous Laboratory Instrumentation Control with Large Lan
 collection: publications
 category: manuscripts
 permalink: /publication/2025-07-03-autonomous-lab
-excerpt: 'This paper explores how large language models can autonomously control laboratory instrumentation, paving the way for fully automated research workflows.'
+excerpt: 'This paper discusses using large language models for fully autonomous laboratory instrumentation control.'
 date: 2025-07-03
-venue: 'Small Structures, 6, 2500173'
+venue: 'Small Structures, 2025, 6, 2500173'
 paperurl: '/files/2025-autonomous-lab.pdf'
-link: 'https://doi.org/10.1002/sstr.202500173'
 citation: 'Yong Xie, Kexin He, Andres Castellanos-Gomez. (2025). &quot;Toward Full Autonomous Laboratory Instrumentation Control with Large Language Models.&quot; <i>Small Structures</i>, 6, 2500173.'
+link: 'https://doi.org/10.1002/sstr.202500173'
 ---
 
-This study introduces a novel framework for autonomous laboratory instrumentation control using large language models (LLMs). By integrating LLMs with experimental hardware, this work demonstrates the feasibility of fully automated research pipelines, reducing human intervention and accelerating scientific discovery.
+This work demonstrates how large language models can control laboratory instruments and workflows fully autonomously, paving the way for next-generation self-driving labs.
