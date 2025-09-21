@@ -7,20 +7,20 @@ author_profile: true
 
 
 
+
 ## 2025
 
 • [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well.
 
-• [2025.09] We thank the organizers of **Flatlands Beyond Graphene 2025**. Prof. Yong Xie delivered an **invited talk** and chaired the Tuesday evening **Shotgun Session** (Milan, Italy).
-
+• [2025.09] We thank the organizers of **Flatlands Beyond Graphene 2025**. Prof. Yong Xie delivered an **invited talk** and chaired the Tuesday evening **Shotgun Session** (Milan, Italy).<br>
 ![Flatlands Beyond Graphene 2025](/images/2025-flatlands-invited-talk.png)
 
 • [2025.08] Delighted to host **Prof. Eduardo R. Hernández** and **Prof. Andres Castellanos-Gomez** during the hot summer. They shared deep theoretical insights and practical guidance with our students. Special thanks to graduate students **Qianjie Lei** and **Yang Liu** for their dedicated support. *Seeds of research often sprout quietly during conversations.*
 
-• [2025.07] Our paper on AI agents for instrument control was selected as a **back cover** in *Small Structures*. The paper is online and has been featured by **Nanowerk Spotlight**.
-｜Paper DOI: https://doi.org/10.1002/sstr.202500173
-｜Back cover: https://onlinelibrary.wiley.com/doi/abs/10.1002/sstr.70047
-｜Media: https://www.nanowerk.com/spotlight/spotid=67169.php
+• [2025.07] Our paper on AI agents for instrument control was selected as a **back cover** in *Small Structures*. The paper is online and has been featured by **Nanowerk Spotlight**.<br>
+<br>｜Paper DOI: https://doi.org/10.1002/sstr.202500173<br>
+<br>｜Back cover: https://onlinelibrary.wiley.com/doi/abs/10.1002/sstr.70047<br>
+<br>｜Media: https://www.nanowerk.com/spotlight/spotid=67169.php
 
 • [2025.07] At the quantum meeting organized by **Prof. Xi Chen (ICMM-CSIC)**, **Prof. Yu Shi (Fudan University)** highly commended our work. Many thanks to Prof. Chen for organizing a top-tier meeting!
 
@@ -33,8 +33,8 @@ author_profile: true
 
 • [2024.05] Congratulations to master’s students **Haoran Li**, **Ziwei Dang**, and **Haitao Yang** on successful thesis defenses!
 
-• [2024.05] Congratulations to two collaborative papers (advised by **Dr. Nan Zhou**) accepted in **Small** and **Small Structures**.
-Small Structures: https://onlinelibrary.wiley.com/doi/full/10.1002/sstr.202400062 (Nan Zhou, Haoran Li)
+• [2024.05] Congratulations to two collaborative papers (advised by **Dr. Nan Zhou**) accepted in **Small** and **Small Structures**.<br>
+Small Structures: https://onlinelibrary.wiley.com/doi/full/10.1002/sstr.202400062 (Nan Zhou, Haoran Li)<br>
 Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziwei Dang)
 
 • [2024.02.20] Our *Nano Letters* paper was accepted: https://pubs.acs.org/doi/10.1021/acs.nanolett.3c04815. Congratulations to **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**, **Yizhe Xue**, **Kexin He**, **Wenshuai Hu**, and all collaborators. Equal first authors: **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**; Corresponding authors: **Yong Xie**, **Ping-Heng Tan**, **Eduardo R. Hernández**, **Yan Zhou**.
@@ -67,11 +67,11 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 
 • [2022.12.16] Media coverage: https://www.nanowerk.com/spotlight/spotid=62040.php
 
-• [2022.11.01] Our paper in **Opto-Electronic Advances** (CAS Zone 1 Top) was selected as a **cover**.
+• [2022.11.01] Our paper in **Opto-Electronic Advances** (**CAS Tier-1 (Top)**) was selected as a **cover**.
 
-• [2022.10.25] Two good news in one day! A paper with **Wenshuai Hu** et al. was accepted by **Nano Research** (CAS Zone 1 Top); our collaborative paper with **Prof. Guoqiang Wu (Wuhan University)** was accepted by **MEMS 2023**. Congratulations!
+• [2022.10.25] Two good news in one day! A paper with **Wenshuai Hu** et al. was accepted by **Nano Research** (**CAS Tier-1 (Top)**); our collaborative paper with **Prof. Guoqiang Wu (Wuhan University)** was accepted by **MEMS 2023**. Congratulations!
 
-• [2022.09.26] A paper (corresponding author: **Yong Xie**) was accepted by **Opto-Electronic Advances** (CAS Zone 1).
+• [2022.09.26] A paper (corresponding author: **Yong Xie**) was accepted by **Opto-Electronic Advances** (**CAS Tier-1**).
 
 • [2022.09.07] Congratulations to **Wenliang Zhang** on his successful PhD defense (co-supervised by Andres Castellanos-Gomez and Yong Xie)! He will join **Shaanxi University of Science & Technology** as an Associate Professor, and received the highest thesis honor **Cum laude**.
 
@@ -81,4 +81,4 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 
 • [2022.08.08] A collaborative paper was accepted by **Advanced Materials Technologies**: https://onlinelibrary.wiley.com/doi/10.1002/admt.202201091
 
-• [2022.08.05] Our paper (first author: **Wenshuai Hu**; co-authors: **Kexin He**, **Xiaolong He**, **Yan Bai**, **Chenyang Liu**, **Chenyang Liu**, etc.; corresponding author: **Yong Xie**) was accepted by **Journal of Applied Physics** (https://aip.scitation.org/doi/full/10.1063/5.0096190). Congratulations!
+• [2022.08.05] Our paper (first author: **Wenshuai Hu**; co-authors: **Kexin He**, **Xiaolong He**, **Yan Bai**, **Chenyang Liu**, etc.; corresponding author: **Yong Xie**) was accepted by **Journal of Applied Physics** (https://aip.scitation.org/doi/full/10.1063/5.0096190). Congratulations!
