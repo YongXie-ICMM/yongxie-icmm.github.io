@@ -10,7 +10,7 @@ author_profile: true
 ### 2023年课题组何小龙硕士在马德里材料科学研究所联合培养
 Master student Xiaolong He from our group conducted joint training at the Institute of Materials Science of Madrid (ICMM-CSIC) in 2023.
 
-![Xiaolong He at ICMM-CSIC in 2023](/images/photos/2023-xiaolong-he-icmm-csic.jpg)
+<img src="/images/photos/2023-xiaolong-he-icmm-csic.jpg" alt="Xiaolong He at ICMM-CSIC in 2023" style="transform: rotate(90deg); max-width: 100%;" />
 
 ### 2D Foundry
 2D Foundry.
