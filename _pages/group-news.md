@@ -22,7 +22,7 @@ author_profile: true
 ## 2025
 
 
-- [2025.11] Our paper has been accepted by **Small Methods**. Article link: https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336.
+- [2025.11] Our **Small Methods** paper has now been accepted and published online: [Low-Cost Maskless Photolithography Using an LCD-3D Printer for Microelectronic Devices](https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336).
 
   In this work, we successfully used a €200 3D printer to perform semiconductor photolithography experiments and scaled the process to wafer level. This demonstrates that what limits us is not hardware, but imagination.
 
@@ -31,12 +31,7 @@ author_profile: true
   ![Small Methods related figure 2](/images/2025-small-methods-figure2.jpg)
 
 
-
-- [2025.10] New publication: [Low-Cost Maskless Photolithography Using an LCD-3D Printer for Microelectronic Devices](https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336).
-
-- [2025.10] New publication: [Building an affordable self-driving lab: Practical machine learning experiments for physics education using Internet-of-Things](https://pubs.aip.org/aip/aml/article/3/4/046105/3369966).
-
-• [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well.
+• [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well. The paper is now available online: [Building an affordable self-driving lab: Practical machine learning experiments for physics education using Internet-of-Things](https://pubs.aip.org/aip/aml/article/3/4/046105/3369966).
 <br>
 ![APL Machine Learning acceptance figure 1](/images/2025-aplml-acceptance-figure1.jpg)<br>
 ![APL Machine Learning acceptance figure 2](/images/2025-aplml-acceptance-figure2.png)
@@ -49,7 +44,7 @@ author_profile: true
 ![Summer visit figure 1](/images/2025-summer-visit-figure1.jpg)<br>
 ![Summer visit figure 2](/images/2025-summer-visit-figure2.jpg)
 
-• [2025.07] Our paper on AI agents for instrument control was selected as a **back cover** in *Small Structures*. The paper is online and has been featured by **Nanowerk Spotlight**.<br>
+• [2025.07] Our paper on AI agents for scientific instrument control was **accepted** (June 2025) and later selected as a **back cover** in *Small Structures* (July 2025). The paper is online and has been featured by **Nanowerk Spotlight**.<br>
 <br>｜Paper DOI: https://doi.org/10.1002/sstr.202500173<br>
 <br>｜Back cover: https://onlinelibrary.wiley.com/doi/abs/10.1002/sstr.70047<br>
 <br>｜Media: https://www.nanowerk.com/spotlight/spotid=67169.php
@@ -57,8 +52,6 @@ author_profile: true
 ![Small Structures back cover](/images/2025-small-structures-back-cover.png)
 
 • [2025.07] At the quantum meeting organized by **Prof. Xi Chen (ICMM-CSIC)**, **Prof. Yu Shi (Fudan University)** highly commended our work. Many thanks to Prof. Chen for organizing a top-tier meeting!
-
-• [2025.06] Our manuscript on **AI agents for scientific instrument control** was accepted by *Small Structures*. The work uses LLM tools to control instruments and, to our knowledge, provides the **first systematic report** of such an AI agent.
 
 • [2025.06] Congratulations to master’s students **Kexin He**, **Yizhe Xue**, and **Xiaolong He** on successfully defending their theses!
 
