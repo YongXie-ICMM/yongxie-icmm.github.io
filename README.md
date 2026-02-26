@@ -1,176 +1,160 @@
-# Yong Xie Website Manager (One-Click)
+# Yong Xie Website Manager
 
-This repo now uses `main.py` as the unified entry point for website updates.
+Unified automation tooling for `yongxie-icmm.github.io` (Jekyll + Academic Pages).
 
-## Quick Start (Most Useful Commands)
+This repository uses `main.py` as the single CLI entry point for:
+- content creation (news, talks, publications, learning)
+- asset copying (PDF/images/certificates)
+- local preview/build
+- git publish
+- post-publish online verification (including optional Kimi-based semantic checks)
 
-1. Show all commands:
+## Overview
+
+### Core capabilities
+- One-command workflows (`quick-add-*`) for common updates
+- Deterministic file generation under `_pages`, `_talks`, `_publications`, `files/`, `images/`
+- Batch import via JSON manifest
+- Publish verification by crawling live pages (`verify-publish`)
+
+### Main entrypoint
 ```bash
 python main.py -h
 ```
 
-2. One-click add Learning resource + Group News + optional preview:
+## Quick Start
+
+### 1. Add a Group News item (with optional certificate/image)
 ```bash
-python main.py quick-add-learning --title "MISSING Semester 2026 (MIT CSAIL)" --url "https://missing.csail.mit.edu/2026/" --preview
+python main.py quick-add-news ^
+  --date 2026.02 ^
+  --text "Received invited talk certificate at Conference 2026." ^
+  --cert-file "C:\Users\Administrator\Desktop\Certificate_Yongxie.pdf" ^
+  --image-file "D:\Git\Source\talk-photo.png"
 ```
 
-3. One-click add publication + optional Group News + optional preview:
+### 2. Add a publication (+ optional auto news)
 ```bash
-python main.py quick-add-paper --title "Paper Title" --date 2026-02-26 --venue "Journal Name" --citation "Author A, Author B. (2026)." --paper-file "D:\Git\Source\paper.pdf" --link "https://doi.org/xxx" --preview
+python main.py quick-add-paper ^
+  --title "Paper Title" ^
+  --date 2026-02-26 ^
+  --venue "Journal Name" ^
+  --citation "Author A, Author B. (2026)." ^
+  --paper-file "D:\Git\Source\paper.pdf" ^
+  --link "https://doi.org/xxx"
 ```
 
-4. One-click add talk + optional Group News + optional preview (supports slides/certificate/image):
+### 3. Add a talk (+ slides/certificate/image + optional auto news)
 ```bash
-python main.py quick-add-talk --title "Talk Title" --date 2026-02-26 --venue "Conference 2026" --location "Madrid, Spain" --type "Invited Talk" --slides-file "D:\Git\Source\slides.pdf" --cert-file "D:\Git\Source\certificate.pdf" --image-file "D:\Git\Source\talk.png" --preview
+python main.py quick-add-talk ^
+  --title "Talk Title" ^
+  --date 2026-02-26 ^
+  --venue "Conference 2026" ^
+  --location "Madrid, Spain" ^
+  --type "Invited Talk" ^
+  --slides-file "D:\Git\Source\slides.pdf" ^
+  --cert-file "D:\Git\Source\certificate.pdf" ^
+  --image-file "D:\Git\Source\talk.png"
 ```
 
-5. One-click add Group News + optional preview (with optional certificate/image auto-copy):
-```bash
-python main.py quick-add-news --date 2026.02 --text "Received invited talk certificate at Conference 2026." --cert-file "C:\Users\Administrator\Desktop\Certificate_Yongxie.pdf" --image-file "D:\Git\Source\talk-photo.png" --preview
-```
-
-6. Batch add everything from manifest (Learning + Papers + Talks + News):
-```bash
-python main.py quick-add-all --manifest batch_manifest.example.json --preview
-```
-Edit `batch_manifest.example.json` first, then run the command.  
-For `news[]`, you can now use optional fields: `image_file`, `image_name`, `image_alt`, `cert_file`, `cert_name`, `cert_label`.
-
-7. Local preview:
+### 4. Local preview
 ```bash
 python main.py preview --host 127.0.0.1 --port 4000 --incremental
 ```
 
-8. Build site:
-```bash
-python main.py build
-```
-
-9. One-click git publish:
+### 5. Publish
 ```bash
 python main.py publish --message "Update website content"
 ```
 
-10. Auto-check live publish status (crawl webpage + optional Kimi semantic check):
+### 6. Verify live publish result
 ```bash
-python main.py verify-publish --contains "MateFin" --expect-image "/images/2026-agentbeats-phase1-winners.jpg" --max-wait-seconds 180
+python main.py verify-publish ^
+  --contains "MateFin" ^
+  --expect-image "/images/2026-agentbeats-phase1-winners.jpg" ^
+  --max-wait-seconds 180
 ```
-If you omit `--contains/--expect-image`, the tool auto-derives checks from the latest local news item.
-Use Kimi check if needed:
+
+If `--contains` / `--expect-image` are omitted, the command auto-derives checks from the latest local Group News entry.
+
+## Batch Workflow
+
+Use the manifest file to import multiple entries in one run:
+```bash
+python main.py quick-add-all --manifest batch_manifest.example.json --preview
+```
+
+Manifest supports:
+- `learning[]`
+- `papers[]`
+- `talks[]`
+- `news[]`
+
+For `news[]`, optional asset fields are supported:
+- `image_file`, `image_name`, `image_alt`
+- `cert_file`, `cert_name`, `cert_label`
+
+## Publish Verification (Crawler + Kimi)
+
+### Deterministic crawler check
+```bash
+python main.py verify-publish --max-wait-seconds 300 --interval-seconds 10
+```
+
+### Add Kimi semantic validation
 ```bash
 python main.py verify-publish --use-kimi --kimi-key-file moonshot_api_key.txt
 ```
 
-## Advanced Commands
+Notes:
+- `verify-publish` checks response status, required text snippets, and expected image sources.
+- With `--use-kimi`, it additionally asks `kimi_interface_minimal.py` to judge whether the page reflects the intended update.
 
-- Add only navigation:
-```bash
-python main.py add-nav --title "Learning" --url /learning/ --after "Teaching"
-```
+## Command Reference
 
-- Add only Learning entry:
 ```bash
-python main.py add-learning --title "MISSING Semester 2026 (MIT CSAIL)" --url "https://missing.csail.mit.edu/2026/" --note "Practical systems skills."
-```
-
-- Add only paper/talk/news (without quick flow):
-```bash
+python main.py add-nav -h
+python main.py add-learning -h
+python main.py add-news -h
 python main.py add-paper -h
 python main.py add-talk -h
-python main.py add-news -h
+python main.py quick-add-learning -h
+python main.py quick-add-news -h
+python main.py quick-add-paper -h
+python main.py quick-add-talk -h
+python main.py quick-add-all -h
+python main.py audit-publications -h
+python main.py verify-publish -h
+python main.py publish -h
 ```
 
-- Audit and auto-fix publication metadata (e.g. duplicated venue year suffix):
-```bash
-python main.py audit-publications --fix-venue-year
-```
+## Repository Structure
 
-- Batch import by JSON manifest:
-```bash
-python main.py quick-add-all --manifest batch_manifest.example.json
-```
+- `main.py`: unified CLI
+- `_pages/group-news.md`: Group News source
+- `_publications/`: publication entries
+- `_talks/`: talk entries
+- `files/`: PDFs and downloadable assets
+- `images/`: image assets
+- `batch_manifest.example.json`: batch import template
+- `kimi_interface_minimal.py`: optional Kimi API client
 
-- Run older scripts (kept for compatibility):
+## Security and Operations
+
+- API key files (for example `moonshot_api_key.txt`) are ignored by git.
+- Do not hardcode API keys in source files.
+- Prefer `verify-publish` after each push to confirm public deployment.
+
+## Legacy Compatibility
+
+Older scripts are still callable:
 ```bash
 python main.py legacy --task add-paper
 python main.py legacy --task add-talk
 python main.py legacy --task setup-news
 ```
 
----
+## Upstream Attribution
 
-# Academic Pages
-**Academic Pages is a Github Pages template for academic websites.**
-
-# Getting Started
-
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
-
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-Start by build the container:
-
-```bash
-docker build -t jekyll-site .
-```
-
-Next, run the container:
-```bash
-docker run -p 4000:4000 --rm -v $(pwd):/usr/src/app jekyll-site
-```
-
-# Maintenance
-
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
-
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
-
-## Bugfixes and enhancements
-
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
-
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
-
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+This site is based on [Academic Pages](https://academicpages.github.io/), itself built on the Minimal Mistakes Jekyll theme.  
+License: [MIT](LICENSE).
