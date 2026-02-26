@@ -52,4 +52,6 @@
 .page__content .photos-page-image--rotated {
   transform: rotate(90deg);
   transform-origin: center;
+  margin-top: clamp(7rem, 12vw, 10rem);
+  margin-bottom: clamp(7rem, 12vw, 10rem);
 }
