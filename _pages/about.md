@@ -34,6 +34,31 @@ With 17+ years of research experience across academia and industry, I work at th
 - 🧪 **New publication (2025):** AI agents for scientific instrument control in *APL Machine Learning* / *Small Structures*. [Publications](/publications/)
 - 🎓 **Student & group updates:** invited talks, thesis defenses, and academic activities. [Group News](/group-news/)
 
+## Selected Publications
+
+{% assign selected_pubs = site.publications | sort: 'date' | reverse %}
+{% for post in selected_pubs limit:5 %}
+- **{{ post.title }}** ({{ post.date | date: "%Y" }})  
+  {% if post.venue %}<em>{{ post.venue }}</em>{% endif %}{% if post.link %} · [Link]({{ post.link }}){% endif %}{% if post.paperurl %} · [PDF]({{ post.paperurl }}){% endif %}
+{% endfor %}
+
+➡️ [View full publications list](/publications/)
+
+## Recent Talks
+
+{% assign recent_talks = site.talks | sort: 'date' | reverse %}
+{% for post in recent_talks limit:3 %}
+- **{{ post.title }}** ({{ post.date | date: "%Y-%m" }}){% if post.venue %} — {{ post.venue }}{% endif %}{% if post.location %}, {{ post.location }}{% endif %}
+{% endfor %}
+
+➡️ [View all talks](/talks/)
+
+## Contact
+
+- Email: [yxie@xidian.edu.cn](mailto:yxie@xidian.edu.cn)
+- Google Scholar: [Profile](https://scholar.google.com/citations?user=bX_QzCQAAAAJ&hl)
+- LinkedIn: [Yong Xie](https://www.linkedin.com/in/yong-xie-2694a315)
+
 ---
 
 ## Visitor Statistics
@@ -45,6 +70,7 @@ With 17+ years of research experience across academia and industry, I work at th
 </p>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
 
