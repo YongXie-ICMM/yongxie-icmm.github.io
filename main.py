@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -396,6 +397,15 @@ def add_talk(
 
 
 def run_command(cmd: list[str]) -> int:
+    if os.name == "nt" and cmd:
+        win_wrappers = {
+            "bundle": "bundle.bat",
+            "jekyll": "jekyll.bat",
+            "gem": "gem.bat",
+        }
+        first = cmd[0].lower()
+        if first in win_wrappers:
+            cmd = [win_wrappers[first], *cmd[1:]]
     proc = subprocess.run(cmd, cwd=REPO_ROOT)
     return proc.returncode
 
