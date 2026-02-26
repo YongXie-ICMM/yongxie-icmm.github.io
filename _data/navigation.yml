@@ -14,6 +14,9 @@ main:
   - title: "Group News"
     url: /group-news/
 
+  - title: "Photos"
+    url: /photos/
+
   - title: "Talks"
     url: /talks/    
 
