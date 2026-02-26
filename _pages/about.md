@@ -28,16 +28,24 @@ With 17+ years of research experience across academia and industry, I work at th
 - 📘 [Learning Resources](/learning/)
 - 🧾 [Curriculum Vitae](/cv/)
 
+## Latest Highlights
+
+- 🏆 **AgentX-AgentBeats 2026 (UC Berkeley):** our team *MateFin* won **1st place (tie)** in the Web Agent track. [Read more](/group-news/)
+- 🧪 **New publication (2025):** AI agents for scientific instrument control in *APL Machine Learning* / *Small Structures*. [Publications](/publications/)
+- 🎓 **Student & group updates:** invited talks, thesis defenses, and academic activities. [Group News](/group-news/)
+
 ---
 
 ## Visitor Statistics
 
 <p style="font-size: 0.95em; color: #666;">
-  👀 Page views: <span id="busuanzi_value_page_pv">--</span> &nbsp;|&nbsp;
-  🧑‍🤝‍🧑 Unique visitors: <span id="busuanzi_value_page_uv">--</span>
+  <span id="busuanzi_container_page_pv">👀 Page views: <span id="busuanzi_value_page_pv">--</span></span>
+  &nbsp;|&nbsp;
+  <span id="busuanzi_container_page_uv">🧑‍🤝‍🧑 Unique visitors: <span id="busuanzi_value_page_uv">--</span></span>
 </p>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
 

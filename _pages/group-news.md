@@ -30,7 +30,7 @@ author_profile: true
 • [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well.
 
 • [2025.09] We thank the organizers of **Flatlands Beyond Graphene 2025**. Prof. Yong Xie delivered an **invited talk** and chaired the Tuesday evening **Shotgun Session** (Milan, Italy).<br>
-![Flatlands Beyond Graphene 2025](/images/2025-flatlands-invited-talk.png)
+![Flatlands Beyond Graphene 2025](/images/Flatlands_Invited_talk.png)
 
 • [2025.08] Delighted to host **Prof. Eduardo R. Hernández** and **Prof. Andres Castellanos-Gomez** during the hot summer. They shared deep theoretical insights and practical guidance with our students. Special thanks to graduate students **Qianjie Lei** and **Yang Liu** for their dedicated support. *Seeds of research often sprout quietly during conversations.*
 
