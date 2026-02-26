@@ -7,7 +7,7 @@ excerpt: 'A low-cost maskless photolithography route for fabrication of van der 
 date: 2025-10-10
 venue: 'Small Methods, 9(11), e01336'
 paperurl: 'https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336'
-citation: 'Qianjie Lei, Xiaolong He, Kexin He, Yang Liu, Xiang Chen, Antonio Correia, Xinran Zhu, Aitor Yanguas-Gil, Andres Castellanos-Gomez, Yong Xie. (2025). Low-Cost Maskless Photolithography Using an LCD-3D Printer for Microelectronic Devices. Small Methods, 9(11), e01336.'
+citation: 'Qianqian Wu, Ying Zhang, Thomas Pucher, Bob McLarnon, Esteban Zamora Amo, Peng Zhang, Yong Xie, Andres Castellanos-Gomez. (2025). Low-Cost Maskless Photolithography Using an LCD-3D Printer for Microelectronic Devices. Small Methods, 9(11), e01336.'
 link: 'https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336'
 ---
 
