@@ -28,4 +28,16 @@ With 17+ years of research experience across academia and industry, I work at th
 - 📘 [Learning Resources](/learning/)
 - 🧾 [Curriculum Vitae](/cv/)
 
+---
+
+## Visitor Statistics
+
+<p style="font-size: 0.95em; color: #666;">
+  👀 Page views: <span id="busuanzi_value_page_pv">--</span> &nbsp;|&nbsp;
+  🧑‍🤝‍🧑 Unique visitors: <span id="busuanzi_value_page_uv">--</span>
+</p>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
