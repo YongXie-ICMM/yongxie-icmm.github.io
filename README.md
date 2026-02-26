@@ -1,3 +1,88 @@
+# Yong Xie Website Manager (One-Click)
+
+This repo now uses `main.py` as the unified entry point for website updates.
+
+## Quick Start (Most Useful Commands)
+
+1. Show all commands:
+```bash
+python main.py -h
+```
+
+2. One-click add Learning resource + Group News + optional preview:
+```bash
+python main.py quick-add-learning --title "MISSING Semester 2026 (MIT CSAIL)" --url "https://missing.csail.mit.edu/2026/" --preview
+```
+
+3. One-click add publication + optional Group News + optional preview:
+```bash
+python main.py quick-add-paper --title "Paper Title" --date 2026-02-26 --venue "Journal Name" --citation "Author A, Author B. (2026)." --paper-file "D:\Git\Source\paper.pdf" --link "https://doi.org/xxx" --preview
+```
+
+4. One-click add talk + optional Group News + optional preview:
+```bash
+python main.py quick-add-talk --title "Talk Title" --date 2026-02-26 --venue "Conference 2026" --location "Madrid, Spain" --type "Invited Talk" --slides-file "D:\Git\Source\slides.pdf" --image-file "D:\Git\Source\talk.png" --preview
+```
+
+5. One-click add Group News + optional preview:
+```bash
+python main.py quick-add-news --date 2026.02 --text "Added new learning resource: [MISSING](https://missing.csail.mit.edu/2026/)." --preview
+```
+
+6. Batch add everything from manifest (Learning + Papers + Talks + News):
+```bash
+python main.py quick-add-all --manifest batch_manifest.example.json --preview
+```
+Edit `batch_manifest.example.json` first, then run the command.
+
+7. Local preview:
+```bash
+python main.py preview --host 127.0.0.1 --port 4000 --incremental
+```
+
+8. Build site:
+```bash
+python main.py build
+```
+
+9. One-click git publish:
+```bash
+python main.py publish --message "Update website content"
+```
+
+## Advanced Commands
+
+- Add only navigation:
+```bash
+python main.py add-nav --title "Learning" --url /learning/ --after "Teaching"
+```
+
+- Add only Learning entry:
+```bash
+python main.py add-learning --title "MISSING Semester 2026 (MIT CSAIL)" --url "https://missing.csail.mit.edu/2026/" --note "Practical systems skills."
+```
+
+- Add only paper/talk/news (without quick flow):
+```bash
+python main.py add-paper -h
+python main.py add-talk -h
+python main.py add-news -h
+```
+
+- Batch import by JSON manifest:
+```bash
+python main.py quick-add-all --manifest batch_manifest.example.json
+```
+
+- Run older scripts (kept for compatibility):
+```bash
+python main.py legacy --task add-paper
+python main.py legacy --task add-talk
+python main.py legacy --task setup-news
+```
+
+---
+
 # Academic Pages
 **Academic Pages is a Github Pages template for academic websites.**
 

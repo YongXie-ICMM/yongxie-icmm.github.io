@@ -14,7 +14,10 @@ main:
   - title: "Teaching"
     url: /teaching/    
     
-  - title: "Group NEWs"
+  - title: "Learning"
+    url: /learning/
+
+  - title: "Group News"
     url: /group-news/
         
   - title: "CV"

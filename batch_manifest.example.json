@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "add_news": true,
+    "replace_existing": false
+  },
+  "nav": {
+    "title": "Learning",
+    "url": "/learning/",
+    "after": "Teaching"
+  },
+  "learning": [
+    {
+      "title": "MISSING Semester 2026 (MIT CSAIL)",
+      "url": "https://missing.csail.mit.edu/2026/",
+      "note": "Practical systems skills for students."
+    }
+  ],
+  "papers": [
+    {
+      "title": "Sample Paper Title",
+      "date": "2026-02-26",
+      "venue": "Journal Name, 2026",
+      "citation": "Author A, Author B. (2026). \"Sample Paper Title.\" Journal Name.",
+      "excerpt": "Short summary of the paper.",
+      "body": "Longer summary text shown on the publication page.",
+      "category": "manuscripts",
+      "paper_file": "D:/Git/Source/sample-paper.pdf",
+      "paper_name": "2026-sample-paper.pdf",
+      "link": "https://doi.org/10.xxxx/xxxx"
+    }
+  ],
+  "talks": [
+    {
+      "title": "Sample Invited Talk",
+      "date": "2026-03-01",
+      "venue": "Conference 2026",
+      "location": "Madrid, Spain",
+      "type": "Invited Talk",
+      "excerpt": "Short summary of the talk.",
+      "slides_file": "D:/Git/Source/sample-slides.pdf",
+      "image_file": "D:/Git/Source/sample-talk.png"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026.02",
+      "text": "Added new website content."
+    }
+  ]
+}

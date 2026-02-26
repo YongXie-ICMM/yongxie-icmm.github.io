@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Group NEWs"
+title: "Group News"
 permalink: /group-news/
 author_profile: true
 ---
@@ -8,7 +8,17 @@ author_profile: true
 
 
 
+## 2026
+
+- [2026.02] Added a new learning resource for students and group members: [MISSING Semester 2026 (MIT CSAIL)](https://missing.csail.mit.edu/2026/).
+
 ## 2025
+
+
+
+- [2025.10] New publication: [Low-Cost Maskless Photolithography for Van der Waals Materials and Devices](https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336).
+
+- [2025.10] New publication: [Building an affordable self-driving lab for autonomous sample recognition and instrumentation control](https://pubs.aip.org/aip/aml/article/3/4/046105/3369966).
 
 • [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well.
 
