@@ -38,13 +38,20 @@
       "type": "Invited Talk",
       "excerpt": "Short summary of the talk.",
       "slides_file": "D:/Git/Source/sample-slides.pdf",
-      "image_file": "D:/Git/Source/sample-talk.png"
+      "image_file": "D:/Git/Source/sample-talk.png",
+      "cert_file": "D:/Git/Source/sample-certificate.pdf"
     }
   ],
   "news": [
     {
       "date": "2026.02",
-      "text": "Added new website content."
+      "text": "Received invited talk certificate at Conference 2026.",
+      "cert_file": "C:/Users/Administrator/Desktop/Certificate_Yongxie.pdf",
+      "cert_name": "Certificate_Yongxie.pdf",
+      "cert_label": "Certificate",
+      "image_file": "D:/Git/Source/sample-talk-photo.png",
+      "image_name": "2026-talk-photo.png",
+      "image_alt": "Conference photo"
     }
   ]
 }

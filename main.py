@@ -299,6 +299,46 @@ def copy_asset(src_path: str | None, target_dir: Path, target_name: str | None) 
     return ""
 
 
+def compose_news_text(
+    base_text: str,
+    cert_url: str = "",
+    cert_label: str = "Certificate",
+    image_url: str = "",
+    image_alt: str = "News image",
+) -> str:
+    text = base_text.strip()
+    parts = [text] if text else []
+    if cert_url:
+        label = cert_label.strip() if cert_label else "Certificate"
+        parts.append(f"[{label}]({cert_url})")
+    if image_url:
+        alt = image_alt.strip() if image_alt else "News image"
+        parts.append(f"![{alt}]({image_url})")
+    return "<br>\n".join(parts)
+
+
+def add_group_news_with_assets(
+    date_raw: str,
+    text: str,
+    image_file: str | None = None,
+    image_name: str | None = None,
+    cert_file: str | None = None,
+    cert_name: str | None = None,
+    cert_label: str | None = None,
+    image_alt: str | None = None,
+) -> None:
+    image_url = copy_asset(image_file, IMAGES_DIR, image_name)
+    cert_url = copy_asset(cert_file, FILES_DIR, cert_name)
+    final_text = compose_news_text(
+        text,
+        cert_url=cert_url,
+        cert_label=cert_label or "Certificate",
+        image_url=image_url,
+        image_alt=image_alt or "News image",
+    )
+    add_group_news(date_raw, final_text)
+
+
 def add_publication(
     title: str,
     date_raw: str,
@@ -386,7 +426,7 @@ def add_talk(
     cert_name: str | None,
     slug_hint: str | None,
     replace_existing: bool,
-) -> tuple[Path, str]:
+) -> tuple[Path, str, str, str]:
     TALKS_DIR.mkdir(parents=True, exist_ok=True)
     FILES_DIR.mkdir(parents=True, exist_ok=True)
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
@@ -440,7 +480,7 @@ def add_talk(
     content = "\n".join(lines) + "\n\n" + resolved_body + "\n"
     write_text(md_path, content)
     print(f"Created talk: {md_path}")
-    return md_path, slides_url
+    return md_path, slides_url, cert_url, teaser_url
 
 
 def run_command(cmd: list[str]) -> int:
@@ -502,8 +542,29 @@ def quick_add_learning(
     return 0
 
 
-def quick_add_news(date_raw: str, text: str, preview: bool, host: str, port: int) -> int:
-    add_group_news(date_raw, text)
+def quick_add_news(
+    date_raw: str,
+    text: str,
+    image_file: str | None,
+    image_name: str | None,
+    cert_file: str | None,
+    cert_name: str | None,
+    cert_label: str | None,
+    image_alt: str | None,
+    preview: bool,
+    host: str,
+    port: int,
+) -> int:
+    add_group_news_with_assets(
+        date_raw=date_raw,
+        text=text,
+        image_file=image_file,
+        image_name=image_name,
+        cert_file=cert_file,
+        cert_name=cert_name,
+        cert_label=cert_label,
+        image_alt=image_alt,
+    )
     if preview:
         return run_preview(host=host, port=port, drafts=False, incremental=True)
     return 0
@@ -580,7 +641,7 @@ def quick_add_talk(
     host: str,
     port: int,
 ) -> int:
-    _, slides_url = add_talk(
+    _, slides_url, cert_url, teaser_url = add_talk(
         title=title,
         date_raw=date_raw,
         venue=venue,
@@ -599,10 +660,18 @@ def quick_add_talk(
     )
     if not no_news:
         d = news_date or date_raw
-        auto_news = f"New talk: {title}."
-        if slides_url:
-            auto_news = f"New talk: {title}. Slides: {slides_url}"
-        add_group_news(d, news_text or auto_news)
+        if news_text:
+            add_group_news(d, news_text)
+        else:
+            auto_news = f"New talk: {title}."
+            links: list[str] = []
+            if slides_url:
+                links.append(f"[Slides]({slides_url})")
+            if cert_url:
+                links.append(f"[Certificate]({cert_url})")
+            if links:
+                auto_news += " " + " | ".join(links)
+            add_group_news(d, compose_news_text(auto_news, image_url=teaser_url, image_alt=title))
     if preview:
         return run_preview(host=host, port=port, drafts=False, incremental=True)
     return 0
@@ -781,7 +850,7 @@ def quick_add_all(manifest_path: str, preview: bool, host: str, port: int) -> in
         slug_hint = _optional_str(item, "slug")
         replace_existing = _as_bool(item.get("replace_existing"), default_replace)
 
-        _, slides_url = add_talk(
+        _, slides_url, cert_url, teaser_url = add_talk(
             title=title,
             date_raw=date_raw,
             venue=venue,
@@ -802,17 +871,41 @@ def quick_add_all(manifest_path: str, preview: bool, host: str, port: int) -> in
 
         if _as_bool(item.get("add_news"), default_add_news):
             news_date = _optional_str(item, "news_date") or date_raw
-            default_news = f"New talk: {title}."
-            if slides_url:
-                default_news = f"New talk: {title}. Slides: {slides_url}"
-            add_group_news(news_date, _optional_str(item, "news_text") or default_news)
+            explicit_news = _optional_str(item, "news_text")
+            if explicit_news:
+                add_group_news(news_date, explicit_news)
+            else:
+                default_news = f"New talk: {title}."
+                links: list[str] = []
+                if slides_url:
+                    links.append(f"[Slides]({slides_url})")
+                if cert_url:
+                    links.append(f"[Certificate]({cert_url})")
+                if links:
+                    default_news += " " + " | ".join(links)
+                add_group_news(news_date, compose_news_text(default_news, image_url=teaser_url, image_alt=title))
             counts["news"] += 1
 
     for idx, item in enumerate(_section_list(data, "news")):
         context = f"news[{idx}]"
         date_raw = _require_str(item, "date", context)
         text = _require_str(item, "text", context)
-        add_group_news(date_raw, text)
+        image_file = _resolve_source_path(_optional_str(item, "image_file"), manifest_dir)
+        image_name = _optional_str(item, "image_name")
+        cert_file = _resolve_source_path(_optional_str(item, "cert_file"), manifest_dir)
+        cert_name = _optional_str(item, "cert_name")
+        cert_label = _optional_str(item, "cert_label")
+        image_alt = _optional_str(item, "image_alt")
+        add_group_news_with_assets(
+            date_raw=date_raw,
+            text=text,
+            image_file=image_file,
+            image_name=image_name,
+            cert_file=cert_file,
+            cert_name=cert_name,
+            cert_label=cert_label,
+            image_alt=image_alt,
+        )
         counts["news"] += 1
 
     print(
@@ -934,6 +1027,15 @@ def add_common_talk_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--replace-existing", action="store_true")
 
 
+def add_common_news_asset_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--image-file", default="", help="Optional image file to copy into images/ and embed in news")
+    parser.add_argument("--image-name", default="", help="Optional target filename in images/")
+    parser.add_argument("--image-alt", default="News image", help="Alt text for embedded news image")
+    parser.add_argument("--cert-file", default="", help="Optional certificate/pdf file to copy into files/ and link in news")
+    parser.add_argument("--cert-name", default="", help="Optional target filename in files/")
+    parser.add_argument("--cert-label", default="Certificate", help="Link label for certificate")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Unified manager for yongxie-icmm.github.io")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -951,6 +1053,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_news = sub.add_parser("add-news", help="Add an entry to Group News")
     p_news.add_argument("--date", required=True, help="YYYY.MM or YYYY-MM or YYYY-MM-DD")
     p_news.add_argument("--text", required=True)
+    add_common_news_asset_args(p_news)
 
     p_paper = sub.add_parser("add-paper", help="Add publication markdown (+ optional pdf copy)")
     add_common_paper_args(p_paper)
@@ -997,6 +1100,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_quick_news = sub.add_parser("quick-add-news", help="One command: add group news (+ optional preview)")
     p_quick_news.add_argument("--date", required=True, help="YYYY.MM or YYYY-MM or YYYY-MM-DD")
     p_quick_news.add_argument("--text", required=True)
+    add_common_news_asset_args(p_quick_news)
     add_preview_args(p_quick_news)
 
     p_quick_paper = sub.add_parser("quick-add-paper", help="One command: add paper + optional group news + optional preview")
@@ -1031,7 +1135,16 @@ def main() -> int:
             add_learning_resource(args.title.strip(), args.url.strip(), args.note.strip() or None)
             return 0
         if args.command == "add-news":
-            add_group_news(args.date.strip(), args.text.strip())
+            add_group_news_with_assets(
+                date_raw=args.date.strip(),
+                text=args.text.strip(),
+                image_file=args.image_file.strip() or None,
+                image_name=args.image_name.strip() or None,
+                cert_file=args.cert_file.strip() or None,
+                cert_name=args.cert_name.strip() or None,
+                cert_label=args.cert_label.strip() or None,
+                image_alt=args.image_alt.strip() or None,
+            )
             return 0
         if args.command == "add-paper":
             add_publication(
@@ -1095,7 +1208,19 @@ def main() -> int:
                 port=args.port,
             )
         if args.command == "quick-add-news":
-            return quick_add_news(args.date.strip(), args.text.strip(), args.preview, args.host, args.port)
+            return quick_add_news(
+                date_raw=args.date.strip(),
+                text=args.text.strip(),
+                image_file=args.image_file.strip() or None,
+                image_name=args.image_name.strip() or None,
+                cert_file=args.cert_file.strip() or None,
+                cert_name=args.cert_name.strip() or None,
+                cert_label=args.cert_label.strip() or None,
+                image_alt=args.image_alt.strip() or None,
+                preview=args.preview,
+                host=args.host,
+                port=args.port,
+            )
         if args.command == "quick-add-paper":
             return quick_add_paper(
                 title=args.title.strip(),

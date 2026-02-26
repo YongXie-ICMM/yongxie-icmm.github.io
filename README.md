@@ -19,21 +19,22 @@ python main.py quick-add-learning --title "MISSING Semester 2026 (MIT CSAIL)" --
 python main.py quick-add-paper --title "Paper Title" --date 2026-02-26 --venue "Journal Name" --citation "Author A, Author B. (2026)." --paper-file "D:\Git\Source\paper.pdf" --link "https://doi.org/xxx" --preview
 ```
 
-4. One-click add talk + optional Group News + optional preview:
+4. One-click add talk + optional Group News + optional preview (supports slides/certificate/image):
 ```bash
-python main.py quick-add-talk --title "Talk Title" --date 2026-02-26 --venue "Conference 2026" --location "Madrid, Spain" --type "Invited Talk" --slides-file "D:\Git\Source\slides.pdf" --image-file "D:\Git\Source\talk.png" --preview
+python main.py quick-add-talk --title "Talk Title" --date 2026-02-26 --venue "Conference 2026" --location "Madrid, Spain" --type "Invited Talk" --slides-file "D:\Git\Source\slides.pdf" --cert-file "D:\Git\Source\certificate.pdf" --image-file "D:\Git\Source\talk.png" --preview
 ```
 
-5. One-click add Group News + optional preview:
+5. One-click add Group News + optional preview (with optional certificate/image auto-copy):
 ```bash
-python main.py quick-add-news --date 2026.02 --text "Added new learning resource: [MISSING](https://missing.csail.mit.edu/2026/)." --preview
+python main.py quick-add-news --date 2026.02 --text "Received invited talk certificate at Conference 2026." --cert-file "C:\Users\Administrator\Desktop\Certificate_Yongxie.pdf" --image-file "D:\Git\Source\talk-photo.png" --preview
 ```
 
 6. Batch add everything from manifest (Learning + Papers + Talks + News):
 ```bash
 python main.py quick-add-all --manifest batch_manifest.example.json --preview
 ```
-Edit `batch_manifest.example.json` first, then run the command.
+Edit `batch_manifest.example.json` first, then run the command.  
+For `news[]`, you can now use optional fields: `image_file`, `image_name`, `image_alt`, `cert_file`, `cert_name`, `cert_label`.
 
 7. Local preview:
 ```bash

@@ -10,6 +10,13 @@ author_profile: true
 
 ## 2026
 
+- [2026.02] Our team **MateFin** won **1st place (tie)** in the **Web Agent** track of the **UC Berkeley AgentX-AgentBeats Phase 1** competition, among **1,300+ participating teams**. This is an important international recognition of our work on robust web-agent design, and it validates our direction in building practical, reliable AI agents for real-world tasks. [Official announcement](https://rdi.berkeley.edu/agentx-agentbeats.html).<br>
+![AgentX-AgentBeats RDI Spotlight](/images/2026-agentbeats-spotlight.jpg)<br>
+![AgentX-AgentBeats Phase 1 Winners (Web Agent: MateFin)](/images/2026-agentbeats-phase1-winners.jpg)
+
+- [2026.02] Received an invited talk certificate.<br>
+[Certificate](/files/Certificate_Yongxie.pdf)
+
 - [2026.02] Added a new learning resource for students and group members: [MISSING Semester 2026 (MIT CSAIL)](https://missing.csail.mit.edu/2026/).
 
 ## 2025
