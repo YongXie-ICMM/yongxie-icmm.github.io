@@ -9,6 +9,52 @@ This repository uses `main.py` as the single CLI entry point for:
 - git publish
 - post-publish online verification (including optional Kimi-based semantic checks)
 
+## Cross-Platform Quick Start (Windows / macOS / Linux)
+
+If someone clones this repo for the first time, the easiest way is to use the provided dev scripts:
+
+### Option A — Windows PowerShell
+```powershell
+./dev.ps1
+```
+
+### Option B — macOS / Linux
+```bash
+chmod +x dev.sh
+./dev.sh
+```
+
+Both scripts will:
+1. check required tools (`ruby`, `bundle`)
+2. install Ruby dependencies (`bundle install`)
+3. optionally install Node dependencies (`npm install`, if available)
+4. start local preview with live reload at `http://127.0.0.1:4000`
+
+> Optional flags/environment:
+> - PowerShell: `./dev.ps1 -Host 127.0.0.1 -Port 4000 -SkipNpm`
+> - macOS/Linux: `HOST=127.0.0.1 PORT=4000 SKIP_NPM=1 ./dev.sh`
+
+---
+
+## Prerequisites
+
+- **Ruby + Bundler** (required for Jekyll)
+- **Node.js + npm** (optional, only for JS asset rebuild)
+- **Git**
+
+### Notes for Windows
+- `Gemfile` includes `wdm` for better file watching performance on Windows.
+- If PowerShell blocks script execution, run once:
+  ```powershell
+  Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+  ```
+
+### Notes for macOS
+If Ruby is old/system-managed, install a newer Ruby (e.g. via `rbenv`/`asdf`) before running scripts.
+
+### Notes for Linux
+Install build tools before `bundle install` if needed (e.g. `build-essential`).
+
 ## Overview
 
 ### Core capabilities
@@ -76,6 +122,34 @@ python main.py verify-publish ^
 ```
 
 If `--contains` / `--expect-image` are omitted, the command auto-derives checks from the latest local Group News entry.
+
+## Local Preview (manual mode)
+
+If you prefer not to use scripts:
+
+```bash
+bundle install
+bundle exec jekyll serve --host 127.0.0.1 --port 4000 --livereload
+```
+
+Open: `http://127.0.0.1:4000`
+
+## Docker Preview (fully isolated)
+
+For users who want zero local Ruby setup:
+
+```bash
+docker build -t yongxie-site .
+docker run --rm -it -p 4000:4000 -v "$(pwd):/usr/src/app" yongxie-site
+```
+
+Windows PowerShell variant:
+```powershell
+docker build -t yongxie-site .
+docker run --rm -it -p 4000:4000 -v "${PWD}:/usr/src/app" yongxie-site
+```
+
+Then open `http://127.0.0.1:4000`.
 
 ## Batch Workflow
 
@@ -158,3 +232,10 @@ python main.py legacy --task setup-news
 
 This site is based on [Academic Pages](https://academicpages.github.io/), itself built on the Minimal Mistakes Jekyll theme.  
 License: [MIT](LICENSE).
+
+## Troubleshooting
+
+- `bundle: command not found` → install Bundler: `gem install bundler`
+- Jekyll watcher is slow on Windows → ensure `wdm` installed (`bundle install` again)
+- Port already in use → run with another port (`-Port 4001` or `PORT=4001`)
+- Dependency conflicts after upgrades → remove local bundle cache and re-run `bundle install`
