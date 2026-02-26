@@ -22,22 +22,39 @@ author_profile: true
 ## 2025
 
 
+- [2025.11] Our paper has been accepted by **Small Methods**. Article link: https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336.
+
+  In this work, we successfully used a €200 3D printer to perform semiconductor photolithography experiments and scaled the process to wafer level. This demonstrates that what limits us is not hardware, but imagination.
+
+  Congratulations to **Qianqian Wu** (visiting PhD student from Jiangnan University) and **Ying Zhang** (PhD student in our group). This work is truly cool!<br>
+  ![Small Methods related figure 1](/images/2025-small-methods-figure1.png)<br>
+  ![Small Methods related figure 2](/images/2025-small-methods-figure2.jpg)
+
+
 
 - [2025.10] New publication: [Low-Cost Maskless Photolithography Using an LCD-3D Printer for Microelectronic Devices](https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202501336).
 
 - [2025.10] New publication: [Building an affordable self-driving lab: Practical machine learning experiments for physics education using Internet-of-Things](https://pubs.aip.org/aip/aml/article/3/4/046105/3369966).
 
 • [2025.09] Our manuscript was accepted by **APL Machine Learning** 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well.
+<br>
+![APL Machine Learning acceptance figure 1](/images/2025-aplml-acceptance-figure1.jpg)<br>
+![APL Machine Learning acceptance figure 2](/images/2025-aplml-acceptance-figure2.png)
 
 • [2025.09] We thank the organizers of **Flatlands Beyond Graphene 2025**. Prof. Yong Xie delivered an **invited talk** and chaired the Tuesday evening **Shotgun Session** (Milan, Italy).<br>
-![Flatlands Beyond Graphene 2025](/images/Flatlands_Invited_talk.png)
+![Flatlands Beyond Graphene 2025](/images/2025-flatlands-talk.jpg)
 
 • [2025.08] Delighted to host **Prof. Eduardo R. Hernández** and **Prof. Andres Castellanos-Gomez** during the hot summer. They shared deep theoretical insights and practical guidance with our students. Special thanks to graduate students **Qianjie Lei** and **Yang Liu** for their dedicated support. *Seeds of research often sprout quietly during conversations.*
+<br>
+![Summer visit figure 1](/images/2025-summer-visit-figure1.jpg)<br>
+![Summer visit figure 2](/images/2025-summer-visit-figure2.jpg)
 
 • [2025.07] Our paper on AI agents for instrument control was selected as a **back cover** in *Small Structures*. The paper is online and has been featured by **Nanowerk Spotlight**.<br>
 <br>｜Paper DOI: https://doi.org/10.1002/sstr.202500173<br>
 <br>｜Back cover: https://onlinelibrary.wiley.com/doi/abs/10.1002/sstr.70047<br>
 <br>｜Media: https://www.nanowerk.com/spotlight/spotid=67169.php
+<br>
+![Small Structures back cover](/images/2025-small-structures-back-cover.png)
 
 • [2025.07] At the quantum meeting organized by **Prof. Xi Chen (ICMM-CSIC)**, **Prof. Yu Shi (Fudan University)** highly commended our work. Many thanks to Prof. Chen for organizing a top-tier meeting!
 
@@ -55,9 +72,13 @@ Small Structures: https://onlinelibrary.wiley.com/doi/full/10.1002/sstr.20240006
 Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziwei Dang)
 
 • [2024.02.20] Our *Nano Letters* paper was accepted: https://pubs.acs.org/doi/10.1021/acs.nanolett.3c04815. Congratulations to **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**, **Yizhe Xue**, **Kexin He**, **Wenshuai Hu**, and all collaborators. Equal first authors: **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**; Corresponding authors: **Yong Xie**, **Ping-Heng Tan**, **Eduardo R. Hernández**, **Yan Zhou**.
+<br>
+![Nano Letters team photo](/images/2024-nano-letters-team.jpg)
 
 
 ## 2023
+
+• [2023.10.17] Our review article in **Trends in Chemistry** has been accepted. Congratulations to **Wenliang** and **Kexin**!
 
 • [2023.10.29] Our team won **First Prize** in the 2nd China Graduate *Dual-Carbon* Innovation & Creativity Competition (finals). Prof. Yong Xie received the **Outstanding Advisor** award.
 
@@ -91,6 +112,8 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 • [2022.09.26] A paper (corresponding author: **Yong Xie**) was accepted by **Opto-Electronic Advances** (**CAS Tier-1**).
 
 • [2022.09.07] Congratulations to **Wenliang Zhang** on his successful PhD defense (co-supervised by Andres Castellanos-Gomez and Yong Xie)! He will join **Shaanxi University of Science & Technology** as an Associate Professor, and received the highest thesis honor **Cum laude**.
+<br>
+![Wenliang Zhang PhD defense](/images/2022-wenliang-phd-defense.jpg)
 
 • [2022.09.07] A collaborative paper was accepted by **Nano Letters**. Congratulations!
 
@@ -99,3 +122,13 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 • [2022.08.08] A collaborative paper was accepted by **Advanced Materials Technologies**: https://onlinelibrary.wiley.com/doi/10.1002/admt.202201091
 
 • [2022.08.05] Our paper (first author: **Wenshuai Hu**; co-authors: **Kexin He**, **Xiaolong He**, **Yan Bai**, **Chenyang Liu**, etc.; corresponding author: **Yong Xie**) was accepted by **Journal of Applied Physics** (https://aip.scitation.org/doi/full/10.1063/5.0096190). Congratulations!
+<br>
+![Journal of Applied Physics related figure](/images/2022-jap-paper-figure.jpg)
+
+• [2022.04.29] Graduate students **Ziwei Dang** and **Haoran Li** received the 2022 Graduate Innovation Fund.
+
+• [2022.04.28] Our paper published in *The Journal of Physical Chemistry Letters* was selected as a **Supplementary Cover**.
+
+• [2022] Undergraduate & teaching achievements: National Undergraduate Innovation Project funded; *Quantum Mechanics* course awarded Shaanxi Provincial First-Class Course; undergraduate innovation project ranked first in defense; multiple Graduate Innovation Fund awards.
+
+• [2022] Our paper published in *Nanotechnology* was selected by IOP Publishing for the 2020 **Highly Cited Paper Award** (top 1% cited papers published between 2017–2019 across 90+ IOP and partner journals; total 213 papers honored).
