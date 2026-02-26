@@ -11,6 +11,7 @@ Quick examples:
   python main.py audit-publications --fix-venue-year
   python main.py preview --host 127.0.0.1 --port 4000 --incremental
   python main.py publish --message "Update website content"
+  python main.py verify-publish --contains "MateFin" --expect-image "/images/2026-agentbeats-phase1-winners.jpg"
 """
 
 from __future__ import annotations
@@ -21,10 +22,15 @@ import os
 import re
 import subprocess
 import sys
+import time
 import unicodedata
 from dataclasses import dataclass
 from datetime import datetime
+from html import unescape
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from urllib.request import Request, urlopen
 
 
 REPO_ROOT = Path(__file__).resolve().parent
@@ -517,6 +523,240 @@ def run_publish(message: str, branch: str, no_push: bool) -> int:
         print("Committed locally. Push skipped by --no-push.")
         return 0
     return run_command(["git", "push", "origin", branch])
+
+
+def _read_config_site_url() -> str:
+    if not (REPO_ROOT / "_config.yml").exists():
+        return ""
+    content = read_text(REPO_ROOT / "_config.yml")
+    m = re.search(r"^url\s*:\s*([^\s#]+)", content, flags=re.MULTILINE)
+    if not m:
+        return ""
+    return m.group(1).strip().strip("'\"")
+
+
+def default_group_news_url() -> str:
+    base = _read_config_site_url()
+    if not base:
+        return "https://yongxie-icmm.github.io/group-news/"
+    return base.rstrip("/") + "/group-news/"
+
+
+def _append_cache_bust(url: str) -> str:
+    parts = urlsplit(url)
+    q = parse_qsl(parts.query, keep_blank_values=True)
+    q.append(("_ts", str(int(time.time()))))
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(q), parts.fragment))
+
+
+def fetch_page_html(url: str, timeout_seconds: int, cache_bust: bool) -> tuple[int, str, str]:
+    target = _append_cache_bust(url) if cache_bust else url
+    req = Request(
+        target,
+        headers={
+            "User-Agent": "site-manager/verify-publish",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
+    )
+    try:
+        with urlopen(req, timeout=timeout_seconds) as resp:
+            status = int(getattr(resp, "status", 200))
+            raw = resp.read()
+            charset = resp.headers.get_content_charset() or "utf-8"
+            last_modified = resp.headers.get("Last-Modified", "")
+        return status, raw.decode(charset, errors="replace"), last_modified
+    except HTTPError as exc:
+        raw = exc.read() if hasattr(exc, "read") else b""
+        text = raw.decode("utf-8", errors="replace") if raw else ""
+        return int(exc.code), text, ""
+    except URLError as exc:
+        raise RuntimeError(f"Network error while fetching {target}: {exc}") from exc
+
+
+def html_to_text(html: str) -> str:
+    cleaned = re.sub(r"(?is)<(script|style).*?>.*?</\\1>", " ", html)
+    cleaned = re.sub(r"(?s)<[^>]+>", " ", cleaned)
+    cleaned = unescape(cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned
+
+
+def extract_image_sources(html: str) -> list[str]:
+    seen: set[str] = set()
+    for m in re.finditer(r'(?is)<img[^>]+src=["\']([^"\']+)["\']', html):
+        src = m.group(1).strip()
+        if src:
+            seen.add(src)
+    return sorted(seen)
+
+
+def strip_markdown(text: str) -> str:
+    value = re.sub(r"!\[[^\]]*\]\([^)]+\)", " ", text)
+    value = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)
+    value = re.sub(r"<br\s*/?>", " ", value, flags=re.IGNORECASE)
+    value = re.sub(r"[*_`~>#]", "", value)
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
+
+
+def latest_local_news_expectations() -> tuple[list[str], list[str]]:
+    lines = read_text(NEWS_FILE).splitlines()
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if not s.startswith("- ["):
+            continue
+        m = re.match(r"-\s*\[[^\]]+\]\s*(.*)$", s)
+        text = strip_markdown(m.group(1) if m else s)
+        if len(text) > 80:
+            text = text[:80].rsplit(" ", 1)[0].strip()
+        must_contain = [text] if text else []
+
+        images: list[str] = []
+        j = i + 1
+        while j < len(lines):
+            nxt = lines[j].strip()
+            if not nxt:
+                j += 1
+                continue
+            if nxt.startswith("- [") or nxt.startswith("## "):
+                break
+            img_m = re.search(r"!\[[^\]]*\]\(([^)]+)\)", nxt)
+            if img_m:
+                images.append(img_m.group(1).strip())
+            j += 1
+        return must_contain, images
+    return [], []
+
+
+def verify_with_kimi(
+    page_text: str,
+    image_sources: list[str],
+    must_contain: list[str],
+    expect_images: list[str],
+    key_file: str,
+    model: str,
+) -> tuple[bool, str]:
+    try:
+        from kimi_interface_minimal import KimiClient
+    except Exception as exc:
+        raise RuntimeError(f"Failed to import kimi_interface_minimal.py: {exc}") from exc
+
+    key_path = Path(key_file)
+    if not key_path.exists():
+        raise FileNotFoundError(f"Kimi key file not found: {key_path}")
+
+    client = KimiClient.from_key_file(key_file=key_path, model=model)
+    clipped_text = page_text[:12000]
+    clipped_images = image_sources[:80]
+    prompt = (
+        "Verify whether a webpage already contains a newly published news item.\n"
+        f"Required text snippets: {json.dumps(must_contain, ensure_ascii=False)}\n"
+        f"Required image tokens: {json.dumps(expect_images, ensure_ascii=False)}\n"
+        f"Detected image src list: {json.dumps(clipped_images, ensure_ascii=False)}\n"
+        "Return JSON with fields:\n"
+        '{"published": boolean, "confidence": number, "missing_text": string[], "missing_images": string[], "reason": string}\n'
+        f"Page text (truncated):\n{clipped_text}"
+    )
+    result = client.chat_json(
+        [
+            {"role": "system", "content": client.strict_json_system_prompt()},
+            {"role": "user", "content": prompt},
+        ],
+        use_cache=False,
+    )
+    if not isinstance(result, dict):
+        raise RuntimeError(f"Unexpected Kimi JSON result type: {type(result)}")
+    published = bool(result.get("published"))
+    confidence = result.get("confidence")
+    reason = str(result.get("reason") or "").strip()
+    message = f"published={published}, confidence={confidence}, reason={reason}"
+    return published, message
+
+
+def verify_publish(
+    url: str | None,
+    contains: list[str],
+    expect_images: list[str],
+    max_wait_seconds: int,
+    interval_seconds: int,
+    timeout_seconds: int,
+    cache_bust: bool,
+    use_kimi: bool,
+    kimi_key_file: str,
+    kimi_model: str,
+) -> int:
+    target_url = (url or "").strip() or default_group_news_url()
+    must_contain = [s.strip() for s in contains if s and s.strip()]
+    image_tokens = [s.strip() for s in expect_images if s and s.strip()]
+
+    if not must_contain and not image_tokens:
+        auto_text, auto_images = latest_local_news_expectations()
+        must_contain = auto_text
+        image_tokens = auto_images
+        print("Auto expectations derived from latest local news entry.")
+
+    if not must_contain and not image_tokens:
+        raise ValueError("No verification targets found. Provide --contains/--expect-image or add local news first.")
+
+    deadline = time.time() + max(0, max_wait_seconds)
+    attempt = 0
+    last_missing_text: list[str] = []
+    last_missing_images: list[str] = []
+
+    while True:
+        attempt += 1
+        status, html, last_modified = fetch_page_html(target_url, timeout_seconds=timeout_seconds, cache_bust=cache_bust)
+        page_text = html_to_text(html)
+        page_text_lower = page_text.lower()
+        image_sources = extract_image_sources(html)
+        image_sources_lower = [s.lower() for s in image_sources]
+
+        missing_text = [s for s in must_contain if s.lower() not in page_text_lower]
+        missing_images: list[str] = []
+        for token in image_tokens:
+            t = token.lower()
+            if not any((t in src) for src in image_sources_lower):
+                missing_images.append(token)
+
+        deterministic_ok = status == 200 and not missing_text and not missing_images
+        kimi_ok = True
+        kimi_note = ""
+        if deterministic_ok and use_kimi:
+            kimi_ok, kimi_note = verify_with_kimi(
+                page_text=page_text,
+                image_sources=image_sources,
+                must_contain=must_contain,
+                expect_images=image_tokens,
+                key_file=kimi_key_file,
+                model=kimi_model,
+            )
+
+        print(
+            f"[verify attempt {attempt}] status={status}, deterministic_ok={deterministic_ok}, "
+            f"kimi_ok={kimi_ok}, last_modified={last_modified or '-'}"
+        )
+        if missing_text:
+            print("  Missing text:", "; ".join(missing_text))
+        if missing_images:
+            print("  Missing images:", "; ".join(missing_images))
+        if kimi_note:
+            print(f"  Kimi: {kimi_note}")
+
+        if deterministic_ok and kimi_ok:
+            print(f"Publish verification passed: {target_url}")
+            return 0
+
+        last_missing_text = missing_text
+        last_missing_images = missing_images
+        if time.time() >= deadline:
+            print(f"Publish verification failed after waiting {max_wait_seconds}s: {target_url}")
+            if last_missing_text:
+                print("Still missing text:", "; ".join(last_missing_text))
+            if last_missing_images:
+                print("Still missing images:", "; ".join(last_missing_images))
+            return 2
+        time.sleep(max(1, interval_seconds))
 
 
 def quick_add_learning(
@@ -1086,6 +1326,18 @@ def build_parser() -> argparse.ArgumentParser:
     p_publish.add_argument("--branch", default="master")
     p_publish.add_argument("--no-push", action="store_true")
 
+    p_verify = sub.add_parser("verify-publish", help="Crawl webpage and verify whether latest news is published")
+    p_verify.add_argument("--url", default="", help="Page URL to verify (default: site /group-news/)")
+    p_verify.add_argument("--contains", action="append", default=[], help="Required text snippet in rendered page (repeatable)")
+    p_verify.add_argument("--expect-image", action="append", default=[], help="Required image src token/path (repeatable)")
+    p_verify.add_argument("--max-wait-seconds", type=int, default=300, help="Max wait time for deployment")
+    p_verify.add_argument("--interval-seconds", type=int, default=10, help="Retry interval")
+    p_verify.add_argument("--timeout-seconds", type=int, default=20, help="HTTP timeout per request")
+    p_verify.add_argument("--no-cache-bust", action="store_true", help="Disable timestamp query for cache bypass")
+    p_verify.add_argument("--use-kimi", action="store_true", help="Use kimi_interface_minimal.py for semantic verification")
+    p_verify.add_argument("--kimi-key-file", default="moonshot_api_key.txt")
+    p_verify.add_argument("--kimi-model", default="moonshot-v1-8k")
+
     p_quick_learning = sub.add_parser("quick-add-learning", help="One command: nav + learning + group news")
     p_quick_learning.add_argument("--title", required=True)
     p_quick_learning.add_argument("--url", required=True)
@@ -1193,6 +1445,19 @@ def main() -> int:
             return run_preview(args.host, args.port, args.drafts, args.incremental)
         if args.command == "publish":
             return run_publish(args.message.strip(), args.branch.strip(), args.no_push)
+        if args.command == "verify-publish":
+            return verify_publish(
+                url=args.url.strip() or None,
+                contains=args.contains,
+                expect_images=args.expect_image,
+                max_wait_seconds=args.max_wait_seconds,
+                interval_seconds=args.interval_seconds,
+                timeout_seconds=args.timeout_seconds,
+                cache_bust=not args.no_cache_bust,
+                use_kimi=args.use_kimi,
+                kimi_key_file=args.kimi_key_file.strip(),
+                kimi_model=args.kimi_model.strip(),
+            )
         if args.command == "quick-add-learning":
             return quick_add_learning(
                 nav_title=args.nav_title.strip(),

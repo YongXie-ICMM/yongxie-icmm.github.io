@@ -11,3 +11,9 @@ Gemfile.lock
 # Ingore files created by npm
 node_modules
 package-lock.json
+
+# Local secrets / runtime cache
+moonshot_api_key.txt
+*_api_key.txt
+.kimi_cache/
+__pycache__/

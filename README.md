@@ -51,6 +51,16 @@ python main.py build
 python main.py publish --message "Update website content"
 ```
 
+10. Auto-check live publish status (crawl webpage + optional Kimi semantic check):
+```bash
+python main.py verify-publish --contains "MateFin" --expect-image "/images/2026-agentbeats-phase1-winners.jpg" --max-wait-seconds 180
+```
+If you omit `--contains/--expect-image`, the tool auto-derives checks from the latest local news item.
+Use Kimi check if needed:
+```bash
+python main.py verify-publish --use-kimi --kimi-key-file moonshot_api_key.txt
+```
+
 ## Advanced Commands
 
 - Add only navigation:
