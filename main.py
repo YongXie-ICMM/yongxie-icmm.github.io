@@ -8,6 +8,7 @@ Quick examples:
   python main.py quick-add-talk --title "An Invited Talk" --date 2026-02-26 --venue "Conference" --location "Madrid, Spain"
   python main.py quick-add-news --date 2026.02 --text "Added a new resource."
   python main.py quick-add-all --manifest batch_manifest.json --preview
+  python main.py audit-publications --fix-venue-year
   python main.py preview --host 127.0.0.1 --port 4000 --incremental
   python main.py publish --message "Update website content"
 """
@@ -69,6 +70,42 @@ def normalize_iso_date(raw: str) -> str:
             year, month, day = int(m.group(1)), int(m.group(2)), int(m.group(3))
             return f"{year:04d}-{month:02d}-{day:02d}"
     raise ValueError(f"Unsupported date format: {raw}. Use YYYY-MM-DD.")
+
+
+def _publication_year_from_date(date_iso: str) -> str:
+    return date_iso[:4]
+
+
+def venue_contains_publication_year(venue: str, date_iso: str) -> bool:
+    year = _publication_year_from_date(date_iso)
+    return year in venue
+
+
+def normalize_publication_venue(venue: str, date_iso: str) -> tuple[str, bool]:
+    year = _publication_year_from_date(date_iso)
+    v = venue.strip()
+    original = v
+    patterns = [
+        rf"[\s,;]*\(\s*{year}\s*\)\s*$",
+        rf"[\s,;]*\[\s*{year}\s*\]\s*$",
+        rf"[\s,;]+{year}\s*$",
+    ]
+    for pattern in patterns:
+        v = re.sub(pattern, "", v).strip()
+    v = re.sub(r"[\s,;]+$", "", v)
+    return v or original, (v != original)
+
+
+def check_publication_metadata(title: str, date_iso: str, venue: str, citation: str) -> list[str]:
+    warnings: list[str] = []
+    year = _publication_year_from_date(date_iso)
+    if venue_contains_publication_year(venue, date_iso):
+        warnings.append(
+            f"Venue already contains publication year {year}; rendering is dedupe-aware, but keep venue format consistent."
+        )
+    if title and citation and title.lower() not in citation.lower():
+        warnings.append("Citation does not contain the exact publication title.")
+    return warnings
 
 
 def yaml_quote(value: str) -> str:
@@ -276,6 +313,7 @@ def add_publication(
     paper_url: str | None,
     slug_hint: str | None,
     replace_existing: bool,
+    normalize_venue_year: bool = True,
 ) -> tuple[Path, str]:
     PUBLICATIONS_DIR.mkdir(parents=True, exist_ok=True)
     FILES_DIR.mkdir(parents=True, exist_ok=True)
@@ -301,6 +339,15 @@ def add_publication(
     if not resolved_body:
         resolved_body = resolved_excerpt
 
+    venue_to_write = venue.strip()
+    if normalize_venue_year:
+        venue_to_write, changed = normalize_publication_venue(venue_to_write, date_iso)
+        if changed:
+            print(f"Normalized venue year suffix: '{venue}' -> '{venue_to_write}'")
+
+    for warning in check_publication_metadata(title, date_iso, venue_to_write, citation):
+        print(f"Warning: {warning}")
+
     lines = [
         "---",
         f"title: {yaml_quote(title)}",
@@ -309,7 +356,7 @@ def add_publication(
         f"permalink: /publication/{slug}",
         f"excerpt: {yaml_quote(resolved_excerpt)}",
         f"date: {date_iso}",
-        f"venue: {yaml_quote(venue)}",
+        f"venue: {yaml_quote(venue_to_write)}",
     ]
     if final_paper_url:
         lines.append(f"paperurl: {yaml_quote(final_paper_url)}")
@@ -476,6 +523,7 @@ def quick_add_paper(
     paper_url: str | None,
     slug_hint: str | None,
     replace_existing: bool,
+    keep_venue_year: bool,
     no_news: bool,
     news_date: str | None,
     news_text: str | None,
@@ -497,6 +545,7 @@ def quick_add_paper(
         paper_url=paper_url,
         slug_hint=slug_hint,
         replace_existing=replace_existing,
+        normalize_venue_year=not keep_venue_year,
     )
     if not no_news:
         d = news_date or date_raw
@@ -684,6 +733,7 @@ def quick_add_all(manifest_path: str, preview: bool, host: str, port: int) -> in
         paper_name = _optional_str(item, "paper_name")
         paper_url = _optional_str(item, "paper_url")
         slug_hint = _optional_str(item, "slug")
+        keep_venue_year = _as_bool(item.get("keep_venue_year"), False)
         replace_existing = _as_bool(item.get("replace_existing"), default_replace)
 
         _, final_paper_url = add_publication(
@@ -700,6 +750,7 @@ def quick_add_all(manifest_path: str, preview: bool, host: str, port: int) -> in
             paper_url=paper_url,
             slug_hint=slug_hint,
             replace_existing=replace_existing,
+            normalize_venue_year=not keep_venue_year,
         )
         counts["papers"] += 1
 
@@ -773,6 +824,62 @@ def quick_add_all(manifest_path: str, preview: bool, host: str, port: int) -> in
     return 0
 
 
+def audit_publications(fix_venue_year: bool) -> int:
+    if not PUBLICATIONS_DIR.exists():
+        print(f"Publication directory does not exist: {PUBLICATIONS_DIR}")
+        return 1
+
+    files = sorted(PUBLICATIONS_DIR.glob("*.md"))
+    checked = 0
+    warnings_count = 0
+    fixed_count = 0
+
+    for path in files:
+        text = read_text(path)
+        title_match = re.search(r'^title:\s*["\']?(.*?)["\']?\s*$', text, flags=re.MULTILINE)
+        date_match = re.search(r"^date:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})\s*$", text, flags=re.MULTILINE)
+        venue_match = re.search(r'^venue:\s*(["\']?)(.*?)\1\s*$', text, flags=re.MULTILINE)
+        citation_match = re.search(r'^citation:\s*(["\']?)(.*?)\1\s*$', text, flags=re.MULTILINE)
+        if not date_match or not venue_match:
+            continue
+
+        checked += 1
+        title = title_match.group(1).strip() if title_match else path.stem
+        date_iso = date_match.group(1).strip()
+        venue = venue_match.group(2).strip()
+        citation = citation_match.group(2).strip() if citation_match else ""
+
+        warnings = check_publication_metadata(title, date_iso, venue, citation)
+        for w in warnings:
+            warnings_count += 1
+            print(f"Warning [{path.name}]: {w}")
+
+        if fix_venue_year:
+            normalized_venue, changed = normalize_publication_venue(venue, date_iso)
+            if changed:
+                fixed_count += 1
+                quote = venue_match.group(1)
+                if quote:
+                    replacement = f"venue: {quote}{normalized_venue}{quote}"
+                else:
+                    replacement = f"venue: {normalized_venue}"
+                updated = re.sub(
+                    r'^venue:\s*(["\']?).*?\1\s*$',
+                    replacement,
+                    text,
+                    count=1,
+                    flags=re.MULTILINE,
+                )
+                write_text(path, updated)
+                print(f"Fixed [{path.name}]: venue '{venue}' -> '{normalized_venue}'")
+
+    print(
+        f"audit-publications completed: checked={checked}, warnings={warnings_count}, "
+        f"fixed={fixed_count}"
+    )
+    return 0
+
+
 def run_legacy(task: str) -> int:
     mapping = {
         "add-paper": REPO_ROOT / "add_paper_autonomous_v3.py",
@@ -806,6 +913,7 @@ def add_common_paper_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--paper-url", default="")
     parser.add_argument("--slug", default="")
     parser.add_argument("--replace-existing", action="store_true")
+    parser.add_argument("--keep-venue-year", action="store_true", help="Do not normalize trailing year in venue")
 
 
 def add_common_talk_args(parser: argparse.ArgumentParser) -> None:
@@ -849,6 +957,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_talk = sub.add_parser("add-talk", help="Add talk markdown (+ optional assets copy)")
     add_common_talk_args(p_talk)
+
+    p_audit = sub.add_parser("audit-publications", help="Check publication metadata consistency")
+    p_audit.add_argument("--fix-venue-year", action="store_true", help="Normalize trailing year in venue for all publications")
 
     p_legacy = sub.add_parser("legacy", help="Run existing legacy automation script")
     p_legacy.add_argument("--task", required=True, choices=["add-paper", "add-talk", "setup-news"])
@@ -937,6 +1048,7 @@ def main() -> int:
                 paper_url=args.paper_url.strip() or None,
                 slug_hint=args.slug.strip() or None,
                 replace_existing=args.replace_existing,
+                normalize_venue_year=not args.keep_venue_year,
             )
             return 0
         if args.command == "add-talk":
@@ -958,6 +1070,8 @@ def main() -> int:
                 replace_existing=args.replace_existing,
             )
             return 0
+        if args.command == "audit-publications":
+            return audit_publications(fix_venue_year=args.fix_venue_year)
         if args.command == "legacy":
             return run_legacy(args.task)
         if args.command == "build":
@@ -997,6 +1111,7 @@ def main() -> int:
                 paper_url=args.paper_url.strip() or None,
                 slug_hint=args.slug.strip() or None,
                 replace_existing=args.replace_existing,
+                keep_venue_year=args.keep_venue_year,
                 no_news=args.no_news,
                 news_date=args.news_date.strip() or None,
                 news_text=args.news_text.strip() or None,

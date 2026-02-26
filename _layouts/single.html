@@ -34,10 +34,23 @@ layout: default
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
         {% endif %}
         
+        {% assign page_year = page.date | default: "1900-01-01" | date: "%Y" %}
+        {% assign page_venue_has_year = false %}
+        {% if page.venue and page.venue contains page_year %}
+          {% assign page_venue_has_year = true %}
+        {% endif %}
         {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+          {% if page_venue_has_year %}
+            <p> {{ page.type }}, <i>{{ page.venue }}</i> </p>
+          {% else %}
+            <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page_year }} </p>
+          {% endif %}
         {% elsif page.venue and page.date %}
-          <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+          {% if page_venue_has_year %}
+            <p>Published in <i>{{ page.venue }}</i> </p>
+          {% else %}
+            <p>Published in <i>{{ page.venue }}</i>, {{ page_year }} </p>
+          {% endif %}
         {% elsif page.date %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}    

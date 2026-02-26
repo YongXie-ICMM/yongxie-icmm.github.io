@@ -69,6 +69,11 @@ python main.py add-talk -h
 python main.py add-news -h
 ```
 
+- Audit and auto-fix publication metadata (e.g. duplicated venue year suffix):
+```bash
+python main.py audit-publications --fix-venue-year
+```
+
 - Batch import by JSON manifest:
 ```bash
 python main.py quick-add-all --manifest batch_manifest.example.json
