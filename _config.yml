@@ -7,14 +7,14 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "Spain/Madrid"
+locale                   : "en-US"
 title                    : "Yong's Homepage"
 title_separator          : "-"
 name                     : &name "Yong Xie"
-description              : &description "personal description"
+description              : &description "Yong Xie | 2D materials, optoelectronics, and AI for science"
 url                      : https://yongxie-icmm.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "YongXie-ICMM/yongxie-icmm.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -24,7 +24,7 @@ author:
   avatar           : "Photo.jpg"
   name             : "Yong Xie"
   pronouns         : # example: "she/her"  
-  bio              : "Visiting professor @ ICMM"
+  bio              : "Visiting Professor @ ICMM-CSIC | Associate Professor @ Xidian University"
   location         : "Madrid, Spain"
   employer         : "ICMM/Xidian University"
   uri              : # URL
