@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title: "Group News"
 permalink: /group-news/
 author_profile: true
