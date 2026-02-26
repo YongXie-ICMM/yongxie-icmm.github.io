@@ -9,6 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
+Full CV
+======
+
+- 📄 [Full CV (PDF)](/files/CV_XieYong202602.pdf)
+
 Education
 ======
 * Ph.D. in Materials Science, Northwestern Polytechnical University, Joint Research at Ulm University, Germany
