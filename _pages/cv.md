@@ -73,6 +73,17 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
+Honors
+======
+* **2026** — **1st Place (tie), Web Agent Track**, UC Berkeley AgentX-AgentBeats Phase 1 (team: *MateFin*; 1,300+ teams)
+* **2020** — **IOP China Top Cited Paper Award (Nanoscience)**
+  * Paper: *Controllable growth of monolayer MoS2 by chemical vapor deposition via close MoO2 precursor for electrical and optical applications*
+* **2020** — **IOP China Top Cited Paper Award (Nanoscience)**
+  * Paper: *NaCl-assisted one-step growth of MoS2-WS2 in-plane heterostructures*
+* **2015** — **Shaanxi Provincial Excellent Doctoral Dissertation Award**
+  * Dissertation: *ZnO low-dimensional materials: growth, property characterization, and applications*
+* **2004** — **First Prize**, 5th Shaanxi Provincial Undergraduate Advanced Mathematics Competition
+
 Service and Leadership
 ======
 * Organized workshops on low-dimensional materials
