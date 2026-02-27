@@ -68,7 +68,7 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 Nano Letters team photo
 ![](/images/2024-nano-letters-team.jpg)
 
-2023
+## 2023
 
  [2023.10] Our review article in **Trends in Chemistry** has been accepted. Congratulations to **Wenliang** and **Kexin**!
 
@@ -92,7 +92,7 @@ Nano Letters team photo
 
  [2023.01] Media coverage: https://www.eurekalert.org/news-releases/975945  https://www.alphagalileo.org/en-gb/Item-Display/ItemId/229134
 
-2022
+## 2022
 
  [2022.12] Media coverage: https://www.nanowerk.com/spotlight/spotid=62040.php
 
