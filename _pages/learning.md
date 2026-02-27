@@ -27,3 +27,5 @@ author_profile: true
 - [培养研究生，导师应先学生之忧而忧（转自科学网）](/learning/graduate-mentorship/)
 
 - [科学之路 -- 我的启悟](/learning/science-road/)
+
+- [麻省理工学院人工智能实验室：如何做研究](/learning/mit-how-to-do-research/)
