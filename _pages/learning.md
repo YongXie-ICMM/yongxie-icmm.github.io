@@ -29,3 +29,5 @@ author_profile: true
 - [科学之路 -- 我的启悟](/learning/science-road/)
 
 - [麻省理工学院人工智能实验室：如何做研究](/learning/mit-how-to-do-research/)
+
+- [面临抉择而摇摆不定的时候，看看这篇文章——来自台湾清华大学的一位老师](/learning/life-decisions-taiwan-tsinghua/)
