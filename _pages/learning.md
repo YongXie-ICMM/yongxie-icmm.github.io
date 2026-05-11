@@ -31,3 +31,5 @@ author_profile: true
 - [麻省理工学院人工智能实验室：如何做研究](/learning/mit-how-to-do-research/)
 
 - [面临抉择而摇摆不定的时候，看看这篇文章——来自台湾清华大学的一位老师](/learning/life-decisions-taiwan-tsinghua/)
+
+- [《知识分子》访谈录（二）：科研团队建设：给牛顿配十个助手，就能做出十个牛顿定律](https://zhuanlan.zhihu.com/p/103707983)
