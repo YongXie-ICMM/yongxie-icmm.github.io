@@ -7,6 +7,12 @@ author_profile: true
 
 ## 2026
 
+- [2026.10] Our **News & Views** article, [Sliding ferroelectricity scales up](https://www.nature.com/articles/s41565-026-02293-z), by **Yong Xie** and **Andres Castellanos-Gomez**, is now published in *Nature Nanotechnology*. We discuss how wafer-scale growth of rhombohedral boron nitride advances sliding ferroelectricity toward integrated memory devices.
+
+- [2026.08] Our open-access paper, [Submicron microdevice patterning with plasma-thinned nail-polish microfiber shadow masks](https://doi.org/10.1039/d6na00537c), is now published in *Nanoscale Advances*. We use plasma-thinned nail-polish microfibers as low-cost shadow masks to fabricate submicron electrode gaps and 2D-material microdevices without photolithography.
+
+- [2026.08] Our open-access paper, [Temperature configurable light-emitting diode (LED) array as a reconstructive spectrometer](https://doi.org/10.1063/5.0301896), is now published in *Applied Physics Letters*, **129(7), 073305**. We demonstrate a low-cost reconstructive spectrometer using commercial LEDs as detectors, with temperature tuning to improve spectral reconstruction.
+
 - [2026.02] Our team **MateFin** won **1st place (tie)** in the **Web Agent** track of the **UC Berkeley AgentX-AgentBeats Phase 1** competition, among **1,300+ participating teams**. This is an important international recognition of our work on robust web-agent design, and it validates our direction in building practical, reliable AI agents for real-world tasks. [Official announcement](https://rdi.berkeley.edu/agentx-agentbeats.html).
 
 ![AgentX-AgentBeats RDI Spotlight](/images/2026-agentbeats-spotlight.jpg)
