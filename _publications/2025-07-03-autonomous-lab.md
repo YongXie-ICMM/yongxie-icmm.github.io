@@ -2,6 +2,7 @@
 title: "Toward Full Autonomous Laboratory Instrumentation Control with Large Language Models"
 collection: publications
 category: manuscripts
+selected: true
 permalink: /publication/2025-07-03-autonomous-lab
 excerpt: 'This paper discusses using large language models for fully autonomous laboratory instrumentation control.'
 date: 2025-07-03

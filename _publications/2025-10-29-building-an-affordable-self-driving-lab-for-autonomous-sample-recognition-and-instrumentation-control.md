@@ -2,6 +2,7 @@
 title: 'Building an affordable self-driving lab: Practical machine learning experiments for physics education using Internet-of-Things'
 collection: publications
 category: manuscripts
+selected: true
 permalink: /publication/2025-10-29-building-an-affordable-self-driving-lab-for-autonomous-sample-recognition-and-instrumentation-control
 excerpt: 'An affordable self-driving laboratory framework for autonomous sample recognition and instrumentation control.'
 date: 2025-10-29

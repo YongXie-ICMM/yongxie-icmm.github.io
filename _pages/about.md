@@ -31,13 +31,13 @@ With 17+ years of research experience across academia and industry, I work at th
 ## Latest Highlights
 
 - 🏆 **AgentX-AgentBeats 2026 (UC Berkeley):** our team *MateFin* won **1st place (tie)** in the Web Agent track. [Read more](/group-news/)
-- 🧪 **New publication (2025):** AI agents for scientific instrument control in *APL Machine Learning* / *Small Structures*. [Publications](/publications/)
+- 🧪 **Recent publications (2026):** LED-based reconstructive spectroscopy in *Applied Physics Letters*, submicron microdevice patterning in *Nanoscale Advances*, and a News & Views article on sliding ferroelectricity in *Nature Nanotechnology*. [Publications](/publications/)
 - 🎓 **Student & group updates:** invited talks, thesis defenses, and academic activities. [Group News](/group-news/)
 
 ## Selected Publications
 
-{% assign selected_pubs = site.publications | sort: 'date' | reverse %}
-{% for post in selected_pubs limit:5 %}
+{% assign selected_pubs = site.publications | where: 'selected', true | sort: 'date' | reverse %}
+{% for post in selected_pubs %}
 - **{{ post.title }}** ({{ post.date | date: "%Y" }})  
   {% if post.venue %}<em>{{ post.venue }}</em>{% endif %}{% if post.link %} · [Link]({{ post.link }}){% endif %}{% if post.paperurl %} · [PDF]({{ post.paperurl }}){% endif %}
 {% endfor %}

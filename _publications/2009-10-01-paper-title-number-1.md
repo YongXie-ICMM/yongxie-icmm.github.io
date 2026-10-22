@@ -2,6 +2,7 @@
 title: "Identification and Structural Characterization of Twisted Atomically Thin Bilayer Materials by Deep Learning"
 collection: publications
 category: manuscripts
+selected: true
 permalink: /publication/2024-02-26-identification-twisted-bilayer
 excerpt: 'This paper describes the use of optical microscopy and deep learning to identify and characterize twisted bilayer materials.'
 date: 2024-02-26
