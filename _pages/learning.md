@@ -7,6 +7,14 @@ author_profile: true
 
 ## Recommended Resources
 
+### Research Writing and Figure Design
+
+- [Behind the Scenes of Paper Writing](https://www.sophielwang.com/blog/paper-writing)
+  Sophie L. Wang shares her approach to writing research papers and planning figures.
+
+- [Figma](https://www.figma.com/)
+  A collaborative tool for designing figures and other visuals.
+
 ### Programming
 
 - [MISSING Semester 2026 (MIT CSAIL)](https://missing.csail.mit.edu/2026/)
