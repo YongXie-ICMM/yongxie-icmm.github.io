@@ -9,9 +9,10 @@ author_profile: true
 
 - [2026.10] Our paper, [Submicron microdevice patterning with plasma-thinned nail-polish microfiber shadow masks](https://doi.org/10.1039/D6NA00537C), was featured on the **back cover** of *Nanoscale Advances*, Volume 8, Issue 21 (27 October 2026). The cover illustrates our low-cost approach to patterning submicron microdevices with nail-polish microfiber shadow masks. [View the back cover](https://pubs.rsc.org/na/article/8/21/6455/1374613/Back-cover).
 
-![Nanoscale Advances back cover featuring our nail-polish microfiber shadow mask research](/images/2026-nanoscale-advances-back-cover.png)
+![Nanoscale Advances back cover featuring our nail-polish microfiber shadow mask research](/images/2026-nanoscale-advances-back-cover.png){: .align-center }
 
 *Cover image © 2026 The Author(s), published by the Royal Society of Chemistry under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
+{: .text-center }
 
 - [2026.10] Our **News & Views** article, [Sliding ferroelectricity scales up](https://www.nature.com/articles/s41565-026-02293-z), by **Yong Xie** and **Andres Castellanos-Gomez**, is now published in *Nature Nanotechnology*. We discuss how wafer-scale growth of rhombohedral boron nitride advances sliding ferroelectricity toward integrated memory devices.
 
@@ -21,7 +22,7 @@ author_profile: true
 
 - [2026.06] **Prof. Yong Xie** received recognition for his outstanding supervision of an undergraduate graduation thesis. The thesis he advised, on thickness-controlled CVD growth and optical characterization of two-dimensional MoS₂, was selected as a **university-level Outstanding Undergraduate Graduation Thesis** for Xidian University's Class of 2022. Congratulations to the student on this achievement! [View the award certificate](/files/2026-outstanding-undergraduate-thesis-advisor.pdf).
 
-![Certificate recognizing Prof. Yong Xie's supervision of a university-level outstanding undergraduate graduation thesis](/images/2026-outstanding-undergraduate-thesis-advisor.png)
+![Certificate recognizing Prof. Yong Xie's supervision of a university-level outstanding undergraduate graduation thesis](/images/2026-outstanding-undergraduate-thesis-advisor.png){: .align-center }
 
 - [2026.02] Our team **MateFin** won **1st place (tie)** in the **Web Agent** track of the **UC Berkeley AgentX-AgentBeats Phase 1** competition, among **1,300+ participating teams**. This is an important international recognition of our work on robust web-agent design, and it validates our direction in building practical, reliable AI agents for real-world tasks. [Official announcement](https://rdi.berkeley.edu/agentx-agentbeats.html).
 
