@@ -64,15 +64,9 @@ With 17+ years of research experience across academia and industry, I work at th
 ## Visitor Statistics
 
 <p style="font-size: 0.95em; color: #666;">
-  <span id="busuanzi_container_page_pv">👀 Page views: <span id="busuanzi_value_page_pv">--</span></span>
+  <span>👀 Site page views: <span id="site-page-views">Loading…</span></span>
   &nbsp;|&nbsp;
-  <span id="busuanzi_container_page_uv">🧑‍🤝‍🧑 Unique visitors: <span id="busuanzi_value_page_uv">--</span></span>
+  <span>🧑‍🤝‍🧑 Unique visitors: <span id="site-unique-visitors">Loading…</span></span>
 </p>
 
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
+<p style="font-size: 0.8em; color: #777;">Counting started 28 October 2026. Unique visitors are estimated per browser.</p>

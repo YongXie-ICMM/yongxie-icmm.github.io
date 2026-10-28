@@ -41,6 +41,8 @@ PUBLICATIONS_DIR = REPO_ROOT / "_publications"
 TALKS_DIR = REPO_ROOT / "_talks"
 FILES_DIR = REPO_ROOT / "files"
 IMAGES_DIR = REPO_ROOT / "images"
+NEWS_IMAGE_CLASS = "group-news-image"
+NEWS_IMAGE_RE = re.compile(r"(!\[[^\]\n]*\]\([^)]+\))(\{:\s*([^}]*)\})?")
 
 
 @dataclass
@@ -240,7 +242,7 @@ def add_group_news(date_raw: str, text: str) -> None:
         raise FileNotFoundError(f"Missing file: {NEWS_FILE}")
 
     year, label = _normalize_news_date_label(date_raw)
-    entry = f"- [{label}] {text.strip()}"
+    entry = f"- [{label}] {format_group_news_images(text.strip())}"
     content = read_text(NEWS_FILE)
     if entry in content:
         print("News entry already exists.")
@@ -303,6 +305,18 @@ def copy_asset(src_path: str | None, target_dir: Path, target_name: str | None) 
     if target_dir == IMAGES_DIR:
         return f"/images/{filename}"
     return ""
+
+
+def format_group_news_images(text: str) -> str:
+    """Apply the shared News image style to Markdown images, including manual entries."""
+    def add_class(match: re.Match[str]) -> str:
+        image, attributes, body = match.group(1), match.group(2), match.group(3)
+        if attributes and re.search(rf"\.{NEWS_IMAGE_CLASS}(?![\w-])", body):
+            return match.group(0)
+        existing = body.strip() if body else ""
+        return f"{image}{{: {existing} .{NEWS_IMAGE_CLASS} }}" if existing else f"{image}{{: .{NEWS_IMAGE_CLASS} }}"
+
+    return NEWS_IMAGE_RE.sub(add_class, text)
 
 
 def compose_news_text(

@@ -9,7 +9,7 @@ author_profile: true
 
 - [2026.10] Our paper, [Submicron microdevice patterning with plasma-thinned nail-polish microfiber shadow masks](https://doi.org/10.1039/D6NA00537C), was featured on the **back cover** of *Nanoscale Advances*, Volume 8, Issue 21 (27 October 2026). The cover illustrates our low-cost approach to patterning submicron microdevices with nail-polish microfiber shadow masks. [View the back cover](https://pubs.rsc.org/na/article/8/21/6455/1374613/Back-cover).
 
-![Nanoscale Advances back cover featuring our nail-polish microfiber shadow mask research](/images/2026-nanoscale-advances-back-cover.png){: .align-center }
+![Nanoscale Advances back cover featuring our nail-polish microfiber shadow mask research](/images/2026-nanoscale-advances-back-cover.png){: .align-center .group-news-image }
 
 *Cover image © 2026 The Author(s), published by the Royal Society of Chemistry under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 {: .text-center }
@@ -22,12 +22,12 @@ author_profile: true
 
 - [2026.06] **Prof. Yong Xie** received recognition for his outstanding supervision of an undergraduate graduation thesis. The thesis he advised, on thickness-controlled CVD growth and optical characterization of two-dimensional MoS₂, was selected as a **university-level Outstanding Undergraduate Graduation Thesis** for Xidian University's Class of 2022. Congratulations to the student on this achievement! [View the award certificate](/files/2026-outstanding-undergraduate-thesis-advisor.pdf).
 
-![Certificate recognizing Prof. Yong Xie's supervision of a university-level outstanding undergraduate graduation thesis](/images/2026-outstanding-undergraduate-thesis-advisor.png){: .align-center }
+![Certificate recognizing Prof. Yong Xie's supervision of a university-level outstanding undergraduate graduation thesis](/images/2026-outstanding-undergraduate-thesis-advisor.png){: .align-center .group-news-image }
 
 - [2026.02] Our team **MateFin** won **1st place (tie)** in the **Web Agent** track of the **UC Berkeley AgentX-AgentBeats Phase 1** competition, among **1,300+ participating teams**. This is an important international recognition of our work on robust web-agent design, and it validates our direction in building practical, reliable AI agents for real-world tasks. [Official announcement](https://rdi.berkeley.edu/agentx-agentbeats.html).
 
-![AgentX-AgentBeats RDI Spotlight](/images/2026-agentbeats-spotlight.jpg)
-![AgentX-AgentBeats Phase 1 Winners](/images/2026-agentbeats-phase1-winners.jpg)
+![AgentX-AgentBeats RDI Spotlight](/images/2026-agentbeats-spotlight.jpg){: .group-news-image }
+![AgentX-AgentBeats Phase 1 Winners](/images/2026-agentbeats-phase1-winners.jpg){: .group-news-image }
 
 - [2026.02] Received an invited talk certificate.
 
@@ -45,29 +45,29 @@ In this work, we successfully used a €200 3D printer to perform semiconductor 
 
 Congratulations to **Qianqian Wu** (visiting PhD student from Jiangnan University) and **Ying Zhang** (PhD student in our group). This work is truly cool!
 
-![Small Methods related figure 1](/images/2025-small-methods-figure1.png)
-![Small Methods related figure 2](/images/2025-small-methods-figure2.jpg)
+![Small Methods related figure 1](/images/2025-small-methods-figure1.png){: .group-news-image }
+![Small Methods related figure 2](/images/2025-small-methods-figure2.jpg){: .group-news-image }
 
 - [2025.09] Our manuscript was accepted by *APL Machine Learning* 🎉 — first time receiving an acceptance notice over a weekend! Many thanks to **Yang Liu**, **Qianjie Lei**, **Xiaolong He**, and all teammates for the hard work. Although a fully *human-out-of-the-loop* autonomous lab is still ahead, we have validated in class that this teaching experiment design works very well. The paper is now available online: [Building an affordable self-driving lab: Practical machine learning experiments for physics education using Internet-of-Things](https://pubs.aip.org/aip/aml/article/3/4/046105/3369966).
 
-![APL Machine Learning acceptance figure 1](/images/2025-aplml-acceptance-figure1.jpg)
-![APL Machine Learning acceptance figure 2](/images/2025-aplml-acceptance-figure2.png)
+![APL Machine Learning acceptance figure 1](/images/2025-aplml-acceptance-figure1.jpg){: .group-news-image }
+![APL Machine Learning acceptance figure 2](/images/2025-aplml-acceptance-figure2.png){: .group-news-image }
 
 - [2025.09] We thank the organizers of **Flatlands Beyond Graphene 2025**. Prof. Yong Xie delivered an **invited talk** and chaired the Tuesday evening **Shotgun Session** (Milan, Italy).
 
-![Flatlands Beyond Graphene 2025](/images/2025-flatlands-talk.jpg)
+![Flatlands Beyond Graphene 2025](/images/2025-flatlands-talk.jpg){: .group-news-image }
 
 - [2025.08] Delighted to host **Prof. Eduardo R. Hernández** and **Prof. Andres Castellanos-Gomez** during the hot summer. They shared deep theoretical insights and practical guidance with our students. Special thanks to graduate students **Qianjie Lei** and **Yang Liu** for their dedicated support. *Seeds of research often sprout quietly during conversations.*
 
-![Summer visit figure 1](/images/2025-summer-visit-figure1.jpg)
-![Summer visit figure 2](/images/2025-summer-visit-figure2.jpg)
+![Summer visit figure 1](/images/2025-summer-visit-figure1.jpg){: .group-news-image }
+![Summer visit figure 2](/images/2025-summer-visit-figure2.jpg){: .group-news-image }
 
 - [2025.07] Our paper on AI agents for scientific instrument control was **accepted** (June 2025) and later selected as a **back cover** in *Small Structures* (July 2025). The paper is online and has been featured by **Nanowerk Spotlight**.
 Paper DOI: https://doi.org/10.1002/sstr.202500173
 Back cover: https://onlinelibrary.wiley.com/doi/abs/10.1002/sstr.70047
 Media: https://www.nanowerk.com/spotlight/spotid=67169.php
 
-![Small Structures back cover](/images/2025-small-structures-back-cover.png)
+![Small Structures back cover](/images/2025-small-structures-back-cover.png){: .group-news-image }
 
 - [2025.07] At the quantum meeting organized by **Prof. Xi Chen (ICMM-CSIC)**, **Prof. Yu Shi (Fudan University)** highly commended our work. Many thanks to Prof. Chen for organizing a top-tier meeting!
 
@@ -83,7 +83,7 @@ Small: https://onlinelibrary.wiley.com/doi/10.1002/smll.202400311 (Nan Zhou, Ziw
 
  [2024.02] Our *Nano Letters* paper was accepted: https://pubs.acs.org/doi/10.1021/acs.nanolett.3c04815. Congratulations to **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**, **Yizhe Xue**, **Kexin He**, **Wenshuai Hu**, and all collaborators. Equal first authors: **Haitao Yang**, **Ruiqi Hu**, **Heng Wu**, **Xiaolong He**; Corresponding authors: **Yong Xie**, **Ping-Heng Tan**, **Eduardo R. Hern?ndez**, **Yan Zhou**.
 Nano Letters team photo
-![](/images/2024-nano-letters-team.jpg)
+![](/images/2024-nano-letters-team.jpg){: .group-news-image }
 
 ## 2023
 
@@ -121,7 +121,7 @@ Nano Letters team photo
 
  [2022.09] Congratulations to **Wenliang Zhang** on his successful PhD defense (co-supervised by Andres Castellanos-Gomez and Yong Xie)! He will join **Shaanxi University of Science & Technology** as an Associate Professor, and received the highest thesis honor **Cum laude**.
 Wenliang Zhang PhD defense
-![](/images/2022-wenliang-phd-defense.jpg)
+![](/images/2022-wenliang-phd-defense.jpg){: .group-news-image }
 
  [2022.09] A collaborative paper was accepted by **Nano Letters**. Congratulations!
 
@@ -131,7 +131,7 @@ Wenliang Zhang PhD defense
 
  [2022.08] Our paper (first author: **Wenshuai Hu**; co-authors: **Kexin He**, **Xiaolong He**, **Yan Bai**, **Chenyang Liu**, etc.; corresponding author: **Yong Xie**) was accepted by **Journal of Applied Physics** (https://aip.scitation.org/doi/full/10.1063/5.0096190). Congratulations!
 Journal of Applied Physics related figure
-![](/images/2022-jap-paper-figure.jpg)
+![](/images/2022-jap-paper-figure.jpg){: .group-news-image }
 
  [2022.04] Graduate students **Ziwei Dang** and **Haoran Li** received the 2022 Graduate Innovation Fund.
 

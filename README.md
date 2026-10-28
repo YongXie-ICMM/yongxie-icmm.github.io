@@ -79,6 +79,8 @@ python main.py quick-add-news ^
   --image-file "D:\Git\Source\talk-photo.png"
 ```
 
+Group News images added through `main.py` are automatically centered and limited to 640 px wide and 520 px high on desktop, with responsive sizing on mobile. The same styling applies to images written directly in a news entry.
+
 ### 2. Add a publication (+ optional auto news)
 ```bash
 python main.py quick-add-paper ^
