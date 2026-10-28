@@ -7,6 +7,12 @@ author_profile: true
 
 ## 2026
 
+- [2026.10] Our paper, [Submicron microdevice patterning with plasma-thinned nail-polish microfiber shadow masks](https://doi.org/10.1039/D6NA00537C), was featured on the **back cover** of *Nanoscale Advances*, Volume 8, Issue 21 (27 October 2026). The cover illustrates our low-cost approach to patterning submicron microdevices with nail-polish microfiber shadow masks. [View the back cover](https://pubs.rsc.org/na/article/8/21/6455/1374613/Back-cover).
+
+![Nanoscale Advances back cover featuring our nail-polish microfiber shadow mask research](/images/2026-nanoscale-advances-back-cover.png)
+
+*Cover image © 2026 The Author(s), published by the Royal Society of Chemistry under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
+
 - [2026.10] Our **News & Views** article, [Sliding ferroelectricity scales up](https://www.nature.com/articles/s41565-026-02293-z), by **Yong Xie** and **Andres Castellanos-Gomez**, is now published in *Nature Nanotechnology*. We discuss how wafer-scale growth of rhombohedral boron nitride advances sliding ferroelectricity toward integrated memory devices.
 
 - [2026.08] Our open-access paper, [Submicron microdevice patterning with plasma-thinned nail-polish microfiber shadow masks](https://doi.org/10.1039/d6na00537c), is now published in *Nanoscale Advances*. We use plasma-thinned nail-polish microfibers as low-cost shadow masks to fabricate submicron electrode gaps and 2D-material microdevices without photolithography.
