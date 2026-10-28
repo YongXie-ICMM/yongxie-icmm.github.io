@@ -13,6 +13,10 @@ author_profile: true
 
 - [2026.08] Our open-access paper, [Temperature configurable light-emitting diode (LED) array as a reconstructive spectrometer](https://doi.org/10.1063/5.0301896), is now published in *Applied Physics Letters*, **129(7), 073305**. We demonstrate a low-cost reconstructive spectrometer using commercial LEDs as detectors, with temperature tuning to improve spectral reconstruction.
 
+- [2026.06] **Prof. Yong Xie** received recognition for his outstanding supervision of an undergraduate graduation thesis. The thesis he advised, on thickness-controlled CVD growth and optical characterization of two-dimensional MoS₂, was selected as a **university-level Outstanding Undergraduate Graduation Thesis** for Xidian University's Class of 2022. Congratulations to the student on this achievement! [View the award certificate](/files/2026-outstanding-undergraduate-thesis-advisor.pdf).
+
+![Certificate recognizing Prof. Yong Xie's supervision of a university-level outstanding undergraduate graduation thesis](/images/2026-outstanding-undergraduate-thesis-advisor.png)
+
 - [2026.02] Our team **MateFin** won **1st place (tie)** in the **Web Agent** track of the **UC Berkeley AgentX-AgentBeats Phase 1** competition, among **1,300+ participating teams**. This is an important international recognition of our work on robust web-agent design, and it validates our direction in building practical, reliable AI agents for real-world tasks. [Official announcement](https://rdi.berkeley.edu/agentx-agentbeats.html).
 
 ![AgentX-AgentBeats RDI Spotlight](/images/2026-agentbeats-spotlight.jpg)
